@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+// butter knife
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.0'
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        resourcePrefix "app_index_"
+        // a router
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api project(':lib_base')
+
+    // a router
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    // butter knife
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+}
