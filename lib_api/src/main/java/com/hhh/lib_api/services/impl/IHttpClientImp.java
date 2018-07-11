@@ -39,6 +39,10 @@ public class IHttpClientImp implements IHttpClient {
         public static int CODE_AUTH_ERROR = 401;
     }
 
+    public static IOnNetEventListener getOnEventListener() {
+        return mListener;
+    }
+
     private static IOnNetEventListener mListener;
 
     public static void setOnEventListener(IOnNetEventListener listener) {

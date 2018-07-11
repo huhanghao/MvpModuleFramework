@@ -1,9 +1,15 @@
 package com.hhh.lib_api;
 
+import android.text.TextUtils;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.hhh.lib_api.error.APIError;
 import com.hhh.lib_api.path.PathManager;
+import com.hhh.lib_api.services.impl.IHttpClientImp;
 import com.hhh.lib_api.services.interfaces.IHttpService;
 import com.hhh.lib_api.token.TokenManager;
+import com.hhh.lib_core.model.WeCommonRep;
 import com.hhh.lib_core.model.WeConstants;
 
 import java.io.IOException;
@@ -52,6 +58,7 @@ public class APIHelper {
                 .addInterceptor(new Interceptor() {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
+                        // 请求网络之前的预处理
                         Request original = chain.request();
                         String path = original.url().url().getPath();
 
@@ -71,29 +78,43 @@ public class APIHelper {
                 .addInterceptor(new Interceptor() {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
+                        // 获取数据之后的预处理
                         Response response = chain.proceed(chain.request());
-
                         String codeStr = String.valueOf(response.code());
 
+                        // 解析错误码code
                         if (!codeStr.startsWith(SUCCESS_HEADER)) {
-//                            WeCommonRep rep;
-//                            String errorString = response.body().string();
-//                            try {
-//                                rep = new Gson().fromJson(errorString, WeCommonRep.class);
-//                            } catch (JsonSyntaxException e) {
-//                                rep = null;
-//                            }
-//
-//                            if (rep != null) {
-//                                if (rep.getErrors() != null && rep.getErrors().size() > 0)
-////                                throw new APIError("网络请求出错，请稍后重试", response.code());
-//                                    throw new APIError(new Throwable(rep.getErrors().get(0)), response.code(), rep);
-//                                else {
-//                                throw new APIError("网络请求出错，请稍后重试", response.code());
-                            throw new APIError(codeStr, response.code());
-//                                }
-//                            }
+
+                            WeCommonRep rep;
+                            String errorString = response.body().string();
+                            try {
+                                rep = new Gson().fromJson(errorString, WeCommonRep.class);
+                            } catch (JsonSyntaxException e) {
+                                rep = null;
+                            }
+
+                            if (rep != null) {
+                                //
+                                if (TextUtils.isEmpty(rep.getMessage())) {
+                                    throw new APIError("网络请求出错，请稍后重试", response.code());
+                                } else {
+                                    if (rep.getMessage().equals("Bad credentials")) {    // 特别处理
+                                        throw new APIError("账户密码错误", response.code());
+                                    } else {
+                                        throw new APIError(rep.getMessage(), response.code());
+                                    }
+                                }
+                            }
+
+                            throw new APIError("网络请求出错，请稍后重试", response.code());
+                        } else {
+                            String path = chain.request().url().url().getPath();
+                            if (IHttpClientImp.getOnEventListener() != null) {
+                                IHttpClientImp.getOnEventListener().onApiSuccess(("/" + chain.request().method() + path).toLowerCase());
+                            }
                         }
+
+                        // 返回正确的数据对象
                         return response;
                     }
                 })

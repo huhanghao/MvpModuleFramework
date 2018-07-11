@@ -6,4 +6,5 @@ package com.hhh.lib_api.interfaces;
 
 public interface IOnNetEventListener {
     void onAuthError();
+    void onApiSuccess(String path);
 }

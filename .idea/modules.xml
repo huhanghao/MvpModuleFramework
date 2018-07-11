@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NewModule.iml" filepath="$PROJECT_DIR$/NewModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app_index/app_main.iml" filepath="$PROJECT_DIR$/app_index/app_main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app_index/app_index.iml" filepath="$PROJECT_DIR$/app_index/app_index.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_api/lib_api.iml" filepath="$PROJECT_DIR$/lib_api/lib_api.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_base/lib_base.iml" filepath="$PROJECT_DIR$/lib_base/lib_base.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_core/lib_core.iml" filepath="$PROJECT_DIR$/lib_core/lib_core.iml" />
