@@ -32,7 +32,7 @@ public class IndexServiceImp implements IIndexService {
         params.put("content", content);
 
         return mHttpClientService.postWithoutRep(
-                APIHelper.getBaseUrl().concat(String.format(IndexPath.NEWS_ADD_COMMENT.path, id)), params);
+                APIHelper.getBaseUrl().concat(String.format(IndexPath.SUBJECT_LIST.path, id)), params);
     }
 
 
@@ -40,7 +40,7 @@ public class IndexServiceImp implements IIndexService {
     public Observable<Boolean> deleteNewsComment(String commentID) {
 
         return mHttpClientService.delete(
-                APIHelper.getBaseUrl().concat(String.format(IndexPath.NEWS_DELETE_COMMENT.path, commentID)));
+                APIHelper.getBaseUrl().concat(String.format(IndexPath.SUBJECT_TREE_STRUCTURE.path, commentID)));
     }
 
 

@@ -7,7 +7,7 @@ import com.hhh.lib_api.APIHelper;
 import com.hhh.lib_api.error.APIError;
 import com.hhh.lib_api.interfaces.IOnNetEventListener;
 import com.hhh.lib_api.services.interfaces.IHttpClient;
-import com.hhh.lib_api.services.interfaces.IHttpService;
+import com.hhh.lib_api.services.interfaces.IHttpBaseService;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,6 +30,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
 /**
+ * 请求的实现类
  * Created by nova on 21/02/2018.
  */
 
@@ -55,7 +56,7 @@ public class IHttpClientImp implements IHttpClient {
 
     private static final String TAG = IHttpClientImp.class.getSimpleName();
 
-    private IHttpService mService;
+    private IHttpBaseService mService;
 
     private IHttpClientImp() {
         mService = APIHelper.getInstance().createHttpAPI();

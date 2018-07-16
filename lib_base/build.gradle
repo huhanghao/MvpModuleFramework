@@ -32,14 +32,14 @@ dependencies {
     api project(':lib_core')
     api project(':lib_api')
 
-    api 'com.android.support:design:27.0.0'
-    api 'com.android.support.constraint:constraint-layout:1.0.2'
-    api 'com.android.support:support-vector-drawable:27.0.0'
-    api 'com.android.support:appcompat-v7:27.0.0'
+    api rootProject.ext.dependencies["appcompat-v7"]
+    api rootProject.ext.dependencies["constraint-layout"]
+    api rootProject.ext.dependencies["support-vector-drawable"]
+    api rootProject.ext.dependencies["design"]
     // a router
-    api 'com.alibaba:arouter-api:1.3.1'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    api rootProject.ext.dependencies["arouter-api"]
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     // butter knife
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    api 'com.jakewharton:butterknife:8.8.1'
+    api rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 }

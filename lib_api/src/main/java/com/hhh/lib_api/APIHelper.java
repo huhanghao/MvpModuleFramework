@@ -7,7 +7,7 @@ import com.google.gson.JsonSyntaxException;
 import com.hhh.lib_api.error.APIError;
 import com.hhh.lib_api.path.PathManager;
 import com.hhh.lib_api.services.impl.IHttpClientImp;
-import com.hhh.lib_api.services.interfaces.IHttpService;
+import com.hhh.lib_api.services.interfaces.IHttpBaseService;
 import com.hhh.lib_api.token.TokenManager;
 import com.hhh.lib_core.model.WeCommonRep;
 import com.hhh.lib_core.model.WeConstants;
@@ -134,8 +134,8 @@ public class APIHelper {
                 .build();
     }
 
-    public IHttpService createHttpAPI() {
-        return createRetrofit().create(IHttpService.class);
+    public IHttpBaseService createHttpAPI() {
+        return createRetrofit().create(IHttpBaseService.class);
     }
 
 

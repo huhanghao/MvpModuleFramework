@@ -6,6 +6,7 @@ import java.util.Map;
 import io.reactivex.Observable;
 
 /**
+ * 请求的用户使用层
  * Created by nova on 12/10/2017.
  */
 

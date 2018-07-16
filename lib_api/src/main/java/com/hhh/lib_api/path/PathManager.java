@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 将不同模块的path地址进行统一的管理
+ * 对path按照需求进行相应的改变,如同意添加token等
  * Created by nova on 13/10/2017.
  */
 

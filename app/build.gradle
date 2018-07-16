@@ -36,11 +36,11 @@ dependencies {
     implementation project(':app_index')
     // dex
     implementation 'com.android.support:multidex:1.0.2'
+
     // a router
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     // butter knife
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
 
 }

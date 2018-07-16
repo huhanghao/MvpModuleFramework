@@ -23,7 +23,7 @@ import retrofit2.http.Url;
  * Created by nova on 12/10/2017.
  */
 
-public interface IHttpService {
+public interface IHttpBaseService {
     @POST
     Observable<ResponseBody> post(@Url String url, @Body Map<String, Object> params);
 
