@@ -17,7 +17,6 @@ public class TokenManager extends TrayPreferences {
     private static TokenManager INSTANCE;
 
     private static final String KEY_TOKEN = "token";
-    private boolean logout;
 
     private TokenManager(@NonNull Context context) {
         super(context, NAME, 1);

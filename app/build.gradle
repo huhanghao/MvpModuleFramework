@@ -33,7 +33,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // 加载libModule
-    implementation project(':app_index')
+    implementation project(':app_sample')
     // dex
     implementation 'com.android.support:multidex:1.0.2'
 

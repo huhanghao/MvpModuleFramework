@@ -31,12 +31,6 @@ public interface IHttpClient {
 
     Observable getList(String url, Map params, Type type);
 
-    Observable getListPro(String url, Map params, Type type);
-
-    Observable getListWithPageInfo(String url, Map params, Class cls);
-
-    Observable getListWithoutPageInfo(String url, Map params, Type type);
-
     Observable postForList(String concat, Map<String, Object> params, Type type);
 
     <T> Observable put(String url, Map params, Class<T> cls);

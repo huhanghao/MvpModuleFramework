@@ -9,7 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app_index" />
+            <option value="$PROJECT_DIR$/app_sample" />
             <option value="$PROJECT_DIR$/lib_api" />
             <option value="$PROJECT_DIR$/lib_base" />
             <option value="$PROJECT_DIR$/lib_core" />
