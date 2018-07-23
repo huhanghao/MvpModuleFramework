@@ -1,4 +1,6 @@
 ext {
+
+    // 公用的sdk和版本控制
     android = [
             compileSdkVersion: 27,
             buildToolsVersion: "27.0.0",
@@ -9,7 +11,7 @@ ext {
 
     ]
 
-    //
+    // 公用的涉及到显示的库
     lib_base_dependencies = [
 
             "design"                    :   'com.android.support:design:27.0.0',
@@ -24,7 +26,7 @@ ext {
             "butterknife-compiler"      :   'com.jakewharton:butterknife-compiler:8.8.1',
     ]
 
-    //
+    // 最底层的依赖工具库
     lib_core_dependencies = [
             // glide
             "glide"                     :   'com.github.bumptech.glide:glide:4.6.1',
@@ -42,6 +44,7 @@ ext {
             "tray"                      :   'net.grandcentrix.tray:tray:0.12.0',
     ]
 
+    // 网络访问请求依赖库
     lib_api_dependencies = [
             // retrfit
             "retrofit"                      :   'com.squareup.retrofit2:retrofit:2.3.0',
