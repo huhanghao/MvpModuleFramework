@@ -35,4 +35,7 @@ dependencies {
     api rootProject.ext.lib_core_dependencies["base_adapter"]
     //tray
     api rootProject.ext.lib_core_dependencies["tray"]
+    // retrofit_life_cycle
+    api rootProject.ext.lib_core_dependencies["rxlifecycle"]
+    api rootProject.ext.lib_core_dependencies["rxlifecycle_components"]
 }

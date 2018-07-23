@@ -3,7 +3,7 @@ package com.hhh.lib_api.services.impl;
 import com.hhh.lib_api.APIHelper;
 import com.hhh.lib_api.path.IndexPath;
 import com.hhh.lib_api.services.interfaces.IHttpClient;
-import com.hhh.lib_api.services.interfaces.IIndexService;
+import com.hhh.lib_api.services.interfaces.ISampleService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,16 +14,16 @@ import io.reactivex.Observable;
  * Created by huhanghao on 2018/2/27.
  */
 
-public class IndexServiceImp implements IIndexService {
+public class SampleServiceImp implements ISampleService {
 
     private IHttpClient mHttpClientService;
 
-    private IndexServiceImp() {
+    private SampleServiceImp() {
         mHttpClientService = IHttpClientImp.getInstance();
     }
 
-    public static IndexServiceImp create() {
-        return new IndexServiceImp();
+    public static SampleServiceImp create() {
+        return new SampleServiceImp();
     }
 
     @Override

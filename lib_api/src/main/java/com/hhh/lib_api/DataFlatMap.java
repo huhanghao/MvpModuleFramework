@@ -95,7 +95,7 @@ public class DataFlatMap {
 
 
     /**
-     * 将数据转化为boolean
+     * 将数据转化为List
      * @param type
      * @return
      */
@@ -116,7 +116,7 @@ public class DataFlatMap {
     }
 
     /**
-     * 直返会boolean
+     * 只返会boolean
      * @return
      */
     public static Function<JSONObject, ObservableSource<Boolean>> data2BooleanFlatMap() {

@@ -6,7 +6,7 @@ import io.reactivex.Observable;
  * Created by huhanghao on 2018/3/8.
  */
 
-public interface IIndexService {
+public interface ISampleService {
     Observable<Boolean> addNewsComment(String id, String content);
     Observable<Boolean> deleteNewsComment(String commentID);
 }
