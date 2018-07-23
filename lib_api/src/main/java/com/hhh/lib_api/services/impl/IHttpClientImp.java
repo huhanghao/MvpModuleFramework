@@ -54,7 +54,6 @@ public class IHttpClientImp implements IHttpClient {
     public Observable postWithoutRep(String url, Map params) {
         return mService.post(url, params)
                 .subscribeOn(Schedulers.io())
-                .compose()
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap(DataFlatMap.middleDataFlatMap())
                 .flatMap(DataFlatMap.data2BooleanFlatMap())
