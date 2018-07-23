@@ -27,9 +27,14 @@ android {
 
 dependencies {
     implementation project(':lib_core')
-    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    // retrofit
+    implementation rootProject.ext.lib_api_dependencies["retrofit"]
+    implementation rootProject.ext.lib_api_dependencies["retrofit_gson_converter"]
+    // okhttp
+    implementation rootProject.ext.lib_api_dependencies["okhttp"]
+    implementation rootProject.ext.lib_api_dependencies["okhttp_logging_interceptor"]
+    // rxjava_adapter
+    api rootProject.ext.lib_core_dependencies["rxjava_adapter"]
+
+
 }

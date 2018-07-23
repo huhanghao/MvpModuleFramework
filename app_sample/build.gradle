@@ -34,7 +34,7 @@ dependencies {
     api project(':lib_base')
 
     // a router
-    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    annotationProcessor rootProject.ext.lib_base_dependencies["arouter-compiler"]
     // butter knife
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    annotationProcessor rootProject.ext.lib_base_dependencies["butterknife-compiler"]
 }

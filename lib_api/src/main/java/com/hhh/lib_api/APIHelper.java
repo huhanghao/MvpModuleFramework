@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.hhh.lib_api.error.APIError;
 import com.hhh.lib_api.path.PathManager;
-import com.hhh.lib_api.services.impl.IHttpClientImp;
 import com.hhh.lib_api.services.interfaces.IHttpBaseService;
 import com.hhh.lib_api.token.TokenManager;
 import com.hhh.lib_core.model.WeCommonRep;
@@ -45,8 +44,6 @@ public class APIHelper {
 
     public static final String BASE_URL = WeConstants.API_ADDRESS;
 
-    private static final String SUCCESS_HEADER = "2";
-
     public static String getBaseUrl() {
         return BASE_URL;
     }
@@ -83,7 +80,7 @@ public class APIHelper {
                         String codeStr = String.valueOf(response.code());
 
                         // 解析错误码code
-                        if (!codeStr.startsWith(SUCCESS_HEADER)) {
+                        if (!codeStr.equals(HttpCode.CODE_SUCCESS)) {
 
                             WeCommonRep rep;
                             String errorString = response.body().string();
@@ -108,10 +105,7 @@ public class APIHelper {
 
                             throw new APIError("网络请求出错，请稍后重试", response.code());
                         } else {
-                            String path = chain.request().url().url().getPath();
-                            if (IHttpClientImp.getOnEventListener() != null) {
-                                IHttpClientImp.getOnEventListener().onApiSuccess(("/" + chain.request().method() + path).toLowerCase());
-                            }
+
                         }
 
                         // 返回正确的数据对象

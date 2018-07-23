@@ -38,9 +38,9 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.2'
 
     // a router
-    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    annotationProcessor rootProject.ext.lib_base_dependencies["arouter-compiler"]
     // butter knife
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    annotationProcessor rootProject.ext.lib_base_dependencies["butterknife-compiler"]
 
 
 }

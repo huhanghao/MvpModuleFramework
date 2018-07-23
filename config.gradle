@@ -8,7 +8,9 @@ ext {
             versionCode: 1,
 
     ]
-    dependencies = [
+
+    //
+    lib_base_dependencies = [
 
             "design"                    :   'com.android.support:design:27.0.0',
             "constraint-layout"         :   'com.android.support.constraint:constraint-layout:1.0.2',
@@ -20,6 +22,33 @@ ext {
             // butterknif
             "butterknife"               :   'com.jakewharton:butterknife:8.8.1',
             "butterknife-compiler"      :   'com.jakewharton:butterknife-compiler:8.8.1',
-
     ]
+
+    //
+    lib_core_dependencies = [
+            // glide
+            "glide"                     :   'com.github.bumptech.glide:glide:4.6.1',
+            // gson
+            "gson"                      :   'com.android.support.constraint:constraint-layout:1.0.2',
+            // android util
+            "android_util"              :   'com.blankj:utilcode:1.9.12',
+            // rxjava & android
+            "rxandroid"                 :   'io.reactivex.rxjava2:rxandroid:2.0.1',
+            "rxjava"                    :   'io.reactivex.rxjava2:rxjava:2.1.3',
+            "rxjava_adapter"            :   'com.squareup.retrofit2:adapter-rxjava2:2.3.0',
+            // adapter
+            "base_adapter"              :   'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30',
+            // tray
+            "tray"                      :   'net.grandcentrix.tray:tray:0.12.0',
+    ]
+
+    lib_api_dependencies = [
+            // retrfit
+            "retrofit"                      :   'com.squareup.retrofit2:retrofit:2.3.0',
+            "retrofit_gson_converter"       :   'com.squareup.retrofit2:converter-gson:2.3.0',
+            // okhttp
+            "okhttp"                        :   'com.squareup.okhttp3:okhttp:3.9.0',
+            "okhttp_logging_interceptor"    :   'com.squareup.okhttp3:logging-interceptor:3.9.0',
+    ]
+
 }
