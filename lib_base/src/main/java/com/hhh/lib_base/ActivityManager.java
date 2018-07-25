@@ -19,18 +19,24 @@ public class ActivityManager {
      * 获取activityManager
      * @return
      */
-    public static ActivityManager getScreenManager(){
-        if(instance==null){
-            instance = new ActivityManager();
+    public static ActivityManager getActivityManager(){
+        if (instance == null) {
+            synchronized (ActivityManager.class){
+                if(instance==null){
+                    instance = new ActivityManager();
+                    instance.activityStack = new Stack();
+                }
+            }
+
         }
         return instance;
     }
 
     /**
-     * 将栈顶activity出栈
+     * 移除指定activity
      * @param activity
      */
-    public void popActivity(Activity activity){
+    public void removeActivity(Activity activity){
         if(activity!=null){
             activity.finish();
             activityStack.remove(activity);

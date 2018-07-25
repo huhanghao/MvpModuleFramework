@@ -6,7 +6,7 @@ import java.util.List;
  * Created by nova on 24/10/2017.
  */
 
-public class WeCommonRep {
+public class SampleCommonRep {
 
     private String timestamp;
     private int status;

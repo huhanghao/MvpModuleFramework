@@ -13,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        resourcePrefix "app_index_"
+        resourcePrefix "app_sample_"
         // a router
         javaCompileOptions {
             annotationProcessorOptions {

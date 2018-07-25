@@ -1,41 +1,50 @@
 package com.hhh.app_index;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.hhh.lib_api.services.impl.SampleServiceImp;
-import com.hhh.lib_api.services.interfaces.ISampleService;
-import com.trello.rxlifecycle2.android.ActivityEvent;
-import com.trello.rxlifecycle2.components.RxActivity;
+import com.blankj.utilcode.util.ToastUtils;
+import com.hhh.app_index.Activity.UtilViewSampleActivity;
+import com.hhh.app_index.Presenter.IndexSamplePresenter;
+import com.hhh.app_index.V.IIndexActivityView;
+import com.hhh.lib_base.XActivity;
 
-import io.reactivex.functions.Consumer;
-
-
-@Route(path = "/index/index")
-public class IndexActivity extends RxActivity {
+import butterknife.BindView;
 
 
-    private ISampleService mBookService;
+@Route(path = "/sample/index")
+public class IndexActivity extends XActivity<IndexSamplePresenter> implements IIndexActivityView {
+
+    @BindView(R2.id.tv_button_1)
+    View tvButton1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_mine_activity_main);
+    public void addView(Bundle savedInstanceState) {
+        addMainView(R.layout.app_sample_activity_main);
 
-        mBookService = SampleServiceImp.create();
+        // 跳转至UtilView示例
+        tvButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(IndexActivity.this,UtilViewSampleActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        mBookService.addNewsComment("12", "32")
-                .compose(bindUntilEvent(ActivityEvent.PAUSE))
-                .subscribe(new Consumer<Object>() {
-                    @Override
-                    public void accept(Object o) throws Exception {
+        // 访问数据
+        getP().getDataFromNet(this,"1","2");
 
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
+    }
 
-                    }
-                });
+    @Override
+    public IndexSamplePresenter newP() {
+        return new IndexSamplePresenter();
+    }
+
+    @Override
+    public void getSampleData(String sampleDataStr) {
+        ToastUtils.showShort("sampleDataStr");
     }
 }

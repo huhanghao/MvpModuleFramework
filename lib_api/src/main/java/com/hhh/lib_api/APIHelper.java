@@ -8,7 +8,7 @@ import com.hhh.lib_api.error.APIError;
 import com.hhh.lib_api.path.PathManager;
 import com.hhh.lib_api.services.interfaces.IHttpBaseService;
 import com.hhh.lib_api.token.TokenManager;
-import com.hhh.lib_core.model.WeCommonRep;
+import com.hhh.lib_core.model.SampleCommonRep;
 import com.hhh.lib_core.model.WeConstants;
 
 import java.io.IOException;
@@ -82,10 +82,10 @@ public class APIHelper {
                         // 解析错误码code
                         if (!codeStr.equals(HttpCode.CODE_SUCCESS)) {
 
-                            WeCommonRep rep;
+                            SampleCommonRep rep;
                             String errorString = response.body().string();
                             try {
-                                rep = new Gson().fromJson(errorString, WeCommonRep.class);
+                                rep = new Gson().fromJson(errorString, SampleCommonRep.class);
                             } catch (JsonSyntaxException e) {
                                 rep = null;
                             }

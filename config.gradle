@@ -3,8 +3,8 @@ ext {
     // 公用的sdk和版本控制
     android = [
             compileSdkVersion: 27,
-            buildToolsVersion: "27.0.0",
-            minSdkVersion: 19,
+            buildToolsVersion: "27.0.3",
+            minSdkVersion: 21,
             targetSdkVersion: 27,
             versionName: "1.0",
             versionCode: 1,
@@ -15,7 +15,7 @@ ext {
     lib_base_dependencies = [
 
             "design"                    :   'com.android.support:design:27.0.0',
-            "constraint-layout"         :   'com.android.support.constraint:constraint-layout:1.0.2',
+            "constraint-layout"         :   'com.android.support.constraint:constraint-layout:1.1.2',
             "support-vector-drawable"   :   'com.android.support:support-vector-drawable:27.0.0',
             "appcompat-v7"              :   'com.android.support:appcompat-v7:27.0.0',
             // arouter
@@ -33,7 +33,7 @@ ext {
             // gson
             "gson"                      :   'com.android.support.constraint:constraint-layout:1.0.2',
             // android util
-            "android_util"              :   'com.blankj:utilcode:1.9.12',
+            "android_util"              :   'com.blankj:utilcode:1.17.3',
             // rxjava & android
             "rxandroid"                 :   'io.reactivex.rxjava2:rxandroid:2.0.1',
             "rxjava"                    :   'io.reactivex.rxjava2:rxjava:2.1.3',

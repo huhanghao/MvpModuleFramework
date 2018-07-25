@@ -34,7 +34,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // 加载libModule
     implementation project(':app_sample')
-    // dex
+    // dex 解决65536
     implementation 'com.android.support:multidex:1.0.2'
 
     // a router

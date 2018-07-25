@@ -21,10 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        // 利用arouter进行跳转
         tvButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ARouter.getInstance().build("/index/main")
+                ARouter.getInstance().build("/sample/index")
                         .navigation(MainActivity.this);
             }
         });

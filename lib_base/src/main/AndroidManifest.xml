@@ -3,7 +3,8 @@
     package="com.hhh.lib_base">
 
     <application>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".XActivity"></activity>
     </application>
 
 </manifest>

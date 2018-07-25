@@ -3,7 +3,8 @@
     package="com.hhh.app_index">
 
     <application>
-        <activity android:name="com.hhh.app_index.IndexActivity"></activity>
+        <activity android:name=".IndexActivity" />
+        <activity android:name=".Activity.UtilViewSampleActivity"></activity>
     </application>
 
 </manifest>
