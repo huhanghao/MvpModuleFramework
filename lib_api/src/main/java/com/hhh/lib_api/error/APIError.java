@@ -1,21 +1,19 @@
 package com.hhh.lib_api.error;
 
 
-import com.hhh.lib_core.model.SampleCommonRep;
-
 /**
- * Created by nova on 2017/10/25.
+ * 最终反馈给用户端网络访问错误的error对象
  */
 
 public class APIError extends Error{
     /*错误码*/
     private int code;
     /*错误信息*/
-    private SampleCommonRep rep;
+    private ApiErrorDetailRep rep;
     /*显示的信息*/
     private String displayMessage;
 
-    public APIError(Throwable e, int code, SampleCommonRep rep) {
+    public APIError(Throwable e, int code, ApiErrorDetailRep rep) {
         super(e);
         this.displayMessage = e.getMessage() == null ? "" : e.getMessage();
         this.code = code;
@@ -44,11 +42,11 @@ public class APIError extends Error{
         this.displayMessage = displayMessage;
     }
 
-    public SampleCommonRep getRep() {
+    public ApiErrorDetailRep getRep() {
         return rep;
     }
 
-    public void setRep(SampleCommonRep rep) {
+    public void setRep(ApiErrorDetailRep rep) {
         this.rep = rep;
     }
 

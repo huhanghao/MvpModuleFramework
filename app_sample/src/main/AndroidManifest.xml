@@ -3,8 +3,13 @@
     package="com.hhh.app_index">
 
     <application>
-        <activity android:name=".IndexActivity" />
-        <activity android:name=".Activity.UtilViewSampleActivity"></activity>
+        <activity
+            android:name=".Activity.UtilViewSampleActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".IndexActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activity.TestActivity"></activity>
     </application>
 
 </manifest>

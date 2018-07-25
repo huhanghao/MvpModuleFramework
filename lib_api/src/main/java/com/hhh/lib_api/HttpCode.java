@@ -1,7 +1,7 @@
 package com.hhh.lib_api;
 
 /**
- * 错误码信息位置
+ * 错误码信息
  * Created by huhanghao on 2018/3/16.
  */
 

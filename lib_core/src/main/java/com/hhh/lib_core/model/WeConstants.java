@@ -3,7 +3,7 @@ package com.hhh.lib_core.model;
 import com.hhh.lib_core.BuildConfig;
 
 /**
- * Created by nova on 30/09/2017.
+ * 存储一些常用的重要的常量数据
  */
 public class WeConstants {
 

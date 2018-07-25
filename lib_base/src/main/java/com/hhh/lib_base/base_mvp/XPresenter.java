@@ -6,7 +6,7 @@ import java.lang.ref.WeakReference;
  * Created by wanglei on 2016/12/29.
  */
 
-public class XPresent<V extends IBaseView> implements IBasePresenter<V> {
+public class XPresenter<V extends IBaseView> implements IBasePresenter<V> {
     private WeakReference<V> v;
 
     @Override

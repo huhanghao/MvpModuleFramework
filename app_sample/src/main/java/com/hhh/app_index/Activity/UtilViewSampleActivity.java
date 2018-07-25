@@ -3,7 +3,6 @@ package com.hhh.app_index.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -14,15 +13,16 @@ import android.widget.AdapterView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hhh.app_index.R;
 import com.hhh.app_index.R2;
+import com.hhh.lib_base.XActivity;
+import com.hhh.lib_base.base_mvp.IBasePresenter;
 import com.hhh.lib_base.base_util_view.BottomUpSelectDialog;
 import com.hhh.lib_base.base_util_view.PopupWindowAlert;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
-public class UtilViewSampleActivity extends AppCompatActivity {
+public class UtilViewSampleActivity extends XActivity {
 
     @BindView(R2.id.tv_button_bottom_up)
     View tvButtonBottomUp;
@@ -38,10 +38,10 @@ public class UtilViewSampleActivity extends AppCompatActivity {
     private Dialog dialog;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_sample_activity_util_view_sample);
-        ButterKnife.bind(this);
+    public void addView(Bundle savedInstanceState) {
+        addMainView(R.layout.app_sample_activity_util_view_sample);
+
+        setMidTitle("UtilViewSampleActivity");
 
         initBottomUpSelectorDialog();
 
@@ -51,7 +51,11 @@ public class UtilViewSampleActivity extends AppCompatActivity {
 
         initListener();
 
-        String htmlStr = "<h2> hello world </h2> </br> <img src=http:\\/\\/zhongtie.dev.ynbsk.com\\/uploads\\/images\\/20180615\\/91acc5426f06afb5b9c7704233d761c4.jpg />";
+    }
+
+    @Override
+    public IBasePresenter setPresenter() {
+        return null;
     }
 
     private void initBottomDialog(Context context, int resourceId) {
@@ -146,8 +150,5 @@ public class UtilViewSampleActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 
 }

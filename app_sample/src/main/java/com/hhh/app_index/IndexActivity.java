@@ -2,6 +2,7 @@ package com.hhh.app_index;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -23,6 +24,8 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
     @Override
     public void addView(Bundle savedInstanceState) {
         addMainView(R.layout.app_sample_activity_main);
+        setBackIcon();
+        setMidTitle("IndexActivity");
 
         // 跳转至UtilView示例
         tvButton1.setOnClickListener(new View.OnClickListener() {
@@ -39,12 +42,31 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
     }
 
     @Override
-    public IndexSamplePresenter newP() {
+    public void returnSampleData(String sampleDataStr) {
+        ToastUtils.showShort("获取SampleData");
+    }
+
+
+    @Override
+    public void returnBaseInfo(String baseInfo) {
+
+    }
+
+    @Override
+    public IndexSamplePresenter setPresenter() {
         return new IndexSamplePresenter();
     }
 
     @Override
-    public void getSampleData(String sampleDataStr) {
-        ToastUtils.showShort("sampleDataStr");
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.app_sample_send_menu, menu);
+        return true;
+    }
+
+    @Override
+    protected void onMenuClicked(int id) {
+        if(id == R.id.send){
+            ToastUtils.showShort("点击menu");
+        }
     }
 }

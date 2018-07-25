@@ -34,6 +34,7 @@ dependencies {
     api project(':lib_base')
 
     // a router
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     annotationProcessor rootProject.ext.lib_base_dependencies["arouter-compiler"]
     // butter knife
     annotationProcessor rootProject.ext.lib_base_dependencies["butterknife-compiler"]

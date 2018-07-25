@@ -8,7 +8,7 @@ import com.hhh.lib_api.error.APIError;
 import com.hhh.lib_api.path.PathManager;
 import com.hhh.lib_api.services.interfaces.IHttpBaseService;
 import com.hhh.lib_api.token.TokenManager;
-import com.hhh.lib_core.model.SampleCommonRep;
+import com.hhh.lib_api.error.ApiErrorDetailRep;
 import com.hhh.lib_core.model.WeConstants;
 
 import java.io.IOException;
@@ -29,8 +29,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIHelper {
 
-    private final static String TAG = APIHelper.class.getSimpleName();
     private static APIHelper mInstance;
+    // url基础地址
+    public static final String BASE_URL = WeConstants.API_ADDRESS;
+
 
     private APIHelper() {
     }
@@ -41,8 +43,6 @@ public class APIHelper {
         }
         return mInstance;
     }
-
-    public static final String BASE_URL = WeConstants.API_ADDRESS;
 
     public static String getBaseUrl() {
         return BASE_URL;
@@ -82,10 +82,10 @@ public class APIHelper {
                         // 解析错误码code
                         if (!codeStr.equals(HttpCode.CODE_SUCCESS)) {
 
-                            SampleCommonRep rep;
+                            ApiErrorDetailRep rep;
                             String errorString = response.body().string();
                             try {
-                                rep = new Gson().fromJson(errorString, SampleCommonRep.class);
+                                rep = new Gson().fromJson(errorString, ApiErrorDetailRep.class);
                             } catch (JsonSyntaxException e) {
                                 rep = null;
                             }

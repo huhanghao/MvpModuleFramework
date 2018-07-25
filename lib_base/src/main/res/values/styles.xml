@@ -8,6 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/black_trans_40</item>
+    </style>
+
     <style name="myTransparent" >
         <item name="android:windowBackground">@color/black_trans_40</item>
         <item name="android:windowNoTitle">true</item>

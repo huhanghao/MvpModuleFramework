@@ -2,25 +2,27 @@ package com.hhh.lib_base;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.hhh.lib_base.base_mvp.IBasePresenter;
 import com.hhh.lib_base.base_mvp.IBaseView;
 import com.hhh.lib_core.utils.ResUtils;
-import com.trello.rxlifecycle2.components.RxActivity;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
+ *
  * @param <P>
  */
-public abstract class XActivity<P extends IBasePresenter> extends RxActivity implements IBaseView<P> {
+public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatActivity implements IBaseView {
 
     //根view
     protected RelativeLayout mRootView;
@@ -40,10 +42,12 @@ public abstract class XActivity<P extends IBasePresenter> extends RxActivity imp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+
         // 在用butterknif绑定前获取需要设置的View
         mRootView = (RelativeLayout) View.inflate(this, R.layout.activity_rootview, null);
         mToolbar = mRootView.findViewById(R.id.toolbar);
-        mToolbar.setBackgroundColor(ResUtils.getColor(R.color.colorPrimary, this));
+        mToolbar.setBackgroundColor(ResUtils.getColor(R.color.colorPrimary));
         mTvMidTitle = mRootView.findViewById(R.id.toolbar_mid_title);
         mContentView = mRootView.findViewById(R.id.content);
         super.setContentView(mRootView);
@@ -51,10 +55,12 @@ public abstract class XActivity<P extends IBasePresenter> extends RxActivity imp
         // 把actvity放到栈管理中
         ActivityManager.getActivityManager().pushActivity(this);
 
+        // 将toolBar显示到界面
+        setSupportActionBar(mToolbar);
+
         // 设置toolbar,左上角的图片能够点击
-        setActionBar(mToolbar);
-        if (getActionBar() != null) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         // 用户写处理方法的入口
@@ -68,6 +74,10 @@ public abstract class XActivity<P extends IBasePresenter> extends RxActivity imp
                 return true;
             }
         });
+
+        // 设置默认选项
+        setMidTitle(ResUtils.getString(R.string.app_name));
+
     }
 
     /**
@@ -77,13 +87,19 @@ public abstract class XActivity<P extends IBasePresenter> extends RxActivity imp
      */
     protected P getP() {
         if (p == null) {
-            p = newP();
+            p = setPresenter();
             if (p != null) {
                 p.attachV(this);
             }
         }
         return p;
     }
+
+    /**
+     * 设置presenter
+     * @return
+     */
+     public abstract P setPresenter();
 
     /**
      * 将需要的布局添加到baseactivity中的内容布局中

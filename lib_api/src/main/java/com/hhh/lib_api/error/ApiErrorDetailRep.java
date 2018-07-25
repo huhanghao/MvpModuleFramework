@@ -1,12 +1,12 @@
-package com.hhh.lib_core.model;
+package com.hhh.lib_api.error;
 
 import java.util.List;
 
 /**
- * Created by nova on 24/10/2017.
+ *  错误信息的具体封装
  */
 
-public class SampleCommonRep {
+public class ApiErrorDetailRep {
 
     private String timestamp;
     private int status;
