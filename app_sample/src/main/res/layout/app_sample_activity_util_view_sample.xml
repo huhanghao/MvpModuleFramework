@@ -45,6 +45,37 @@
                 android:text="弹出底部弹窗"
                 android:textColor="@color/white" />
 
+            <TextView
+                android:id="@+id/tv_button_show_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:text="show Loading"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_button_hide_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:text="close Loading"
+                android:textColor="@color/white" />
+
+
+            <TextView
+                android:id="@+id/tv_show_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:text="show error"
+                android:textColor="@color/white" />
+
             <include layout="@layout/app_sample_item_swipe_view"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"

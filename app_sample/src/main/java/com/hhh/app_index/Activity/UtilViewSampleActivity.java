@@ -33,6 +33,15 @@ public class UtilViewSampleActivity extends XActivity {
     @BindView(R2.id.tv_button_dialog1)
     View tvButtonDialog;
 
+    @BindView(R2.id.tv_button_show_loading)
+    View tvButtonShowLoading;
+
+    @BindView(R2.id.tv_button_hide_loading)
+    View tvButtonHideLoading;
+
+    @BindView(R2.id.tv_show_error)
+    View tvShowError;
+
     private BottomUpSelectDialog mBottomUpSelectDialog;
     private PopupWindowAlert mPopupWindowAlert;
     private Dialog dialog;
@@ -97,7 +106,26 @@ public class UtilViewSampleActivity extends XActivity {
             }
         });
 
+        tvButtonShowLoading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showLoading("加载中");
+            }
+        });
 
+        tvButtonHideLoading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    stopLoading();
+            }
+        });
+
+        tvShowError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showError("cuowu");
+            }
+        });
 
     }
 

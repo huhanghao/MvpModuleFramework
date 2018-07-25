@@ -1,5 +1,6 @@
 package com.hhh.lib_base;
 
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,7 +20,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- *
  * @param <P>
  */
 public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatActivity implements IBaseView {
@@ -97,9 +97,10 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
 
     /**
      * 设置presenter
+     *
      * @return
      */
-     public abstract P setPresenter();
+    public abstract P setPresenter();
 
     /**
      * 将需要的布局添加到baseactivity中的内容布局中
@@ -174,16 +175,28 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
 
     @Override
     public void showLoading(String title) {
-
+        showLoading(true, title);
     }
 
     @Override
     public void stopLoading() {
-
+        showLoading(false, null);
     }
 
     public void showError(String msg) {
+        ProgressDialog.show(this, msg, null);
+    }
 
+
+    /**
+     * loading
+     */
+    public void showLoading(boolean isShow, String msg) {
+        findViewById(R.id.progress_area).setVisibility(isShow ? View.VISIBLE : View.GONE);
+        findViewById(R.id.message).setVisibility(msg == null ? View.GONE : View.VISIBLE);
+        if (msg != null) {
+            ((TextView) findViewById(R.id.message)).setText(msg);
+        }
     }
 
     @Override
