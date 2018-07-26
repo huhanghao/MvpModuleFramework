@@ -18,29 +18,6 @@
         android:textColor="@color/white" />
 
 
-    <EditText
-        android:id="@+id/tv_user_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@id/tv_button_2"
-        android:background="@color/common_bg"
-        android:hint="输入用户名"
-        android:padding="10dp"
-        android:textColor="@color/white" />
-
-    <EditText
-        android:id="@+id/tv_user_psw"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@id/tv_button_2"
-        android:background="@color/common_bg"
-        android:hint="输入用户密码"
-        android:padding="10dp"
-        android:textColor="@color/white" />
-
-
     <TextView
         android:id="@+id/tv_button_2"
         android:layout_width="wrap_content"

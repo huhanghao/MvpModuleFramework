@@ -1,4 +1,4 @@
-package com.hhh.app_index.V;
+package com.hhh.app_index.v;
 
 import com.hhh.lib_base.base_mvp.IBaseView;
 

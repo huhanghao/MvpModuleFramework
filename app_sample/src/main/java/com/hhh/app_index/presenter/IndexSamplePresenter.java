@@ -1,8 +1,8 @@
-package com.hhh.app_index.Presenter;
+package com.hhh.app_index.presenter;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hhh.app_index.IndexActivity;
-import com.hhh.app_index.V.IIndexActivityView;
+import com.hhh.app_index.v.IIndexActivityView;
 import com.hhh.lib_api.services.impl.SampleServiceImp;
 import com.hhh.lib_api.services.interfaces.ISampleService;
 import com.hhh.lib_base.base_util_view.LoadingDialog;

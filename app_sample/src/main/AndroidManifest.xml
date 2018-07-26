@@ -4,12 +4,12 @@
 
     <application>
         <activity
-            android:name=".Activity.UtilViewSampleActivity"
+            android:name=".activity.UtilViewSampleActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".IndexActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.TestActivity"></activity>
+        <activity android:name=".activity.TestActivity"></activity>
     </application>
 
 </manifest>

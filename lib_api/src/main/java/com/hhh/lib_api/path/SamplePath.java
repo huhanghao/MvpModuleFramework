@@ -11,7 +11,7 @@ import java.util.List;
 public class SamplePath {
     public static List<WePath> INDEX_PATHS;
 
-    public static WePath GET_USER_INFO = new WePath("/api/user/login.html",true);   // 获取个人信息
+    public static WePath GET_USER_INFO = new WePath("/api/user/login.html",false);   // 获取个人信息
 
     static {
         INDEX_PATHS = new ArrayList<>();

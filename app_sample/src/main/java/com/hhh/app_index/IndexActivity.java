@@ -7,9 +7,9 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ToastUtils;
-import com.hhh.app_index.Activity.UtilViewSampleActivity;
-import com.hhh.app_index.Presenter.IndexSamplePresenter;
-import com.hhh.app_index.V.IIndexActivityView;
+import com.hhh.app_index.activity.UtilViewSampleActivity;
+import com.hhh.app_index.presenter.IndexSamplePresenter;
+import com.hhh.app_index.v.IIndexActivityView;
 import com.hhh.lib_base.XActivity;
 
 import butterknife.BindView;

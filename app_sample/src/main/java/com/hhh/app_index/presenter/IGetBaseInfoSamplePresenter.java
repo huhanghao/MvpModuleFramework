@@ -1,6 +1,6 @@
-package com.hhh.app_index.Presenter;
+package com.hhh.app_index.presenter;
 
-import com.hhh.app_index.V.IGetBaseInfoView;
+import com.hhh.app_index.v.IGetBaseInfoView;
 import com.hhh.lib_api.services.interfaces.ISampleService;
 import com.hhh.lib_base.XActivity;
 import com.hhh.lib_base.base_mvp.XPresenter;

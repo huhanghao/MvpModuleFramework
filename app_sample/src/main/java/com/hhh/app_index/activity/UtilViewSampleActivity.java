@@ -1,4 +1,4 @@
-package com.hhh.app_index.Activity;
+package com.hhh.app_index.activity;
 
 import android.app.Dialog;
 import android.content.Context;
