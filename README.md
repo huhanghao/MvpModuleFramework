@@ -163,6 +163,12 @@ https://www.jianshu.com/p/b343fcff51b0
 
 1、item和item子控件的点击长按；2、item的夹杂动画，3、添加头部和尾部4、上拉加载、下拉刷新5、分组和多布局6、item的拖拽和滑动删除等
 
+
+
+
+
+# 封装好的模块
+
 ## FlycoTabLayout
 
 ### Git地址
