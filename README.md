@@ -198,7 +198,7 @@ https://github.com/grandcentrix/tray
 
 # 封装好的一些模块
 
-## ActivityManager
+## ActivityStackManager
 
 ### 描述：
 
@@ -255,6 +255,44 @@ https://github.com/grandcentrix/tray
 ### 使用场景：
 
 AndroidUtils不能触及的工具类的调用
+
+## LoadingDialog
+
+### 描述：
+
+这是我们加载数据的时候的loading，里面放了我们loading时候的样式和展示方式
+
+### 使用场景：
+
+加载数据之类的需要等待的界面
+
+
+
+## UserInfoManager
+
+### 描述：
+
+获取用户信息相关的对象，用于获取、保存本地的用户信息。（本来想做刷新的，但是碍于所在模块是在比较底层的core模块，为了不破坏模块的功能化区，所以数据刷新只能在使用的时候外部做了）
+
+### 使用场景：
+
+在进行相关的用户数据操作的时候使用
+
+## LocalSpDataManager
+
+### 描述：
+
+用于存储本地sp的对象，存储对象用的是Tray。
+
+### 使用场景：
+
+以sp形式，存储在本地的信息。
+
+
+
+
+
+
 
 
 
