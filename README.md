@@ -163,6 +163,100 @@ https://www.jianshu.com/p/b343fcff51b0
 
 1、item和item子控件的点击长按；2、item的夹杂动画，3、添加头部和尾部4、上拉加载、下拉刷新5、分组和多布局6、item的拖拽和滑动删除等
 
+## FlycoTabLayout
+
+### Git地址
+
+https://github.com/H07000223/FlycoTabLayout/blob/master/README_CN.md
+
+### 简介
+
+比较好用的多样式，定制性很强的TabLayout，能够满足目前我们大部分对滑动标题的需求。
+
+![](http://pa97zk4aq.bkt.clouddn.com/2018-07-23-155354.png)
+
+
+
+
+
+## Tray
+
+### Git地址
+
+https://github.com/grandcentrix/tray
+
+### 简介
+
+对于一般的sp来说跨进程时不安全的。所以这里我们采用Tray来取代sp实现简单数据的持久化存储。
+
+
+# 封装好的一些模块
+
+## ActivityManager
+
+### 描述：
+
+用来控制Activity的栈，我们可以直接用来将Activity出栈，或者关闭某个Activity之前的所有栈。
+
+### 使用场景：
+
+在修改经过多个步骤修改完数据之后需要将前面所有的activity清除掉的时候，就比较爽了。
+
+
+
+## BottomUpSelectDialog
+
+### 描述
+
+从底部弹起的选择窗
+
+### 使用场景
+
+![](http://pa97zk4aq.bkt.clouddn.com/2018-07-24-065901.png)
+
+
+
+
+
+## PopupWindowAlert
+
+### 描述：
+
+一个现实在中间的pop提示弹窗，支持，文字，图片，html格式数据的展示。
+
+### 使用场景
+
+![](http://pa97zk4aq.bkt.clouddn.com/2018-07-26-013521.png)
+
+
+
+## SwipeLayout
+
+### 描述：
+
+一个左滑的view，因为设置了滑动，所以点击事件失效了，这块可以去优化下。
+
+### 使用场景：
+
+![](http://pa97zk4aq.bkt.clouddn.com/2018-07-24-065957.png)
+
+## ResUtils
+
+### 描述：
+
+在AndroidUtils中我们可以拿到大部分我们需要的封装好的android的方法，但是有一些小的东西AndroidUtils没有提供，我们就自己封装到这个工具类中
+
+### 使用场景：
+
+AndroidUtils不能触及的工具类的调用
+
+
+
+
+
+
+
+
  
 
  
