@@ -31,7 +31,7 @@ ext {
             // glide
             "glide"                     :   'com.github.bumptech.glide:glide:4.6.1',
             // gson
-            "gson"                      :   'com.android.support.constraint:constraint-layout:1.0.2',
+            "gson"                      :   'com.google.code.gson:gson:2.8.5',
             // android util
             "android_util"              :   'com.blankj:utilcode:1.17.3',
             // rxjava & android
@@ -44,7 +44,7 @@ ext {
             "tray"                      :   'net.grandcentrix.tray:tray:0.12.0',
             // rx_life_cycle
             "rxlifecycle"               :   'com.trello.rxlifecycle2:rxlifecycle:2.2.1',
-            "rxlifecycle_components"       :   'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1',
+            "rxlifecycle_components"    :   'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1',
     ]
 
     // 网络访问请求依赖库

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.hhh.app_index.IndexActivity">
 
 
@@ -16,5 +17,38 @@
         android:text="跳转至示UtilView示例"
         android:textColor="@color/white" />
 
+
+    <EditText
+        android:id="@+id/tv_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/tv_button_2"
+        android:background="@color/common_bg"
+        android:hint="输入用户名"
+        android:padding="10dp"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/tv_user_psw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/tv_button_2"
+        android:background="@color/common_bg"
+        android:hint="输入用户密码"
+        android:padding="10dp"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:id="@+id/tv_button_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorAccent"
+        android:padding="10dp"
+        android:text="测试网络获取_登录"
+        android:textColor="@color/white" />
 
 </LinearLayout>

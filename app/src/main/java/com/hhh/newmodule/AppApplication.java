@@ -5,11 +5,10 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.Utils;
 import com.hhh.lib_api.interfaces.IOnNetEventListener;
 import com.hhh.lib_api.services.impl.IHttpClientImp;
-import com.hhh.lib_api.token.TokenManager;
+import com.hhh.lib_base.ActivityStackManager;
 import com.hhh.lib_core.utils.ResUtils;
 
 /**
@@ -26,16 +25,12 @@ public class AppApplication extends Application {
         Utils.init(this);
         ResUtils.init(this);
 
-        // 错误信息的整体处理
+        // 错误信息的整体处理(目前是做token过期处理)
         IHttpClientImp.setOnEventListener(new IOnNetEventListener() {
             @Override
             public void onAuthError() {
-                // to do
-                // need test
-                ActivityUtils.finishAllActivities();
-                ARouter.getInstance().build("/login/login").navigation();
-                TokenManager.getInstance().setToken(null);
-
+                // 将stack之前的activity全部出栈
+                ActivityStackManager.getActivityManager().closeUntilThisActicity("MainActivity");
             }
 
             @Override

@@ -1,12 +1,12 @@
 package com.hhh.lib_api.services.impl;
 
 import com.hhh.lib_api.APIHelper;
-import com.hhh.lib_api.path.IndexPath;
+import com.hhh.lib_api.path.SamplePath;
 import com.hhh.lib_api.services.interfaces.IHttpClient;
 import com.hhh.lib_api.services.interfaces.ISampleService;
+import com.hhh.lib_core.beans.SampleUserBean;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import io.reactivex.Observable;
 
@@ -27,20 +27,15 @@ public class SampleServiceImp implements ISampleService {
     }
 
     @Override
-    public Observable<Boolean> addNewsComment(String id, String content) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("content", content);
+    public Observable<SampleUserBean> getUserInfo(String userName, String userPsw) {
 
-        return mHttpClientService.postWithoutRep(
-                APIHelper.getBaseUrl().concat(String.format(IndexPath.SUBJECT_LIST.path, id)), params);
-    }
+        HashMap<String, String> params = new HashMap<>();
+        params.put("username", userName);
+        params.put("password", userPsw);
 
+        String baseUrl = APIHelper.getBaseUrl().concat(SamplePath.GET_USER_INFO.path);
 
-    @Override
-    public Observable<Boolean> deleteNewsComment(String commentID) {
-
-        return mHttpClientService.delete(
-                APIHelper.getBaseUrl().concat(String.format(IndexPath.SUBJECT_TREE_STRUCTURE.path, commentID)));
+        return mHttpClientService.post(baseUrl, params, SampleUserBean.class);
     }
 
 

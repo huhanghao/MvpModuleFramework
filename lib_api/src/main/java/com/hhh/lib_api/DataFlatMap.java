@@ -61,11 +61,13 @@ public class DataFlatMap {
             public void accept(Throwable throwable) throws Exception {
                 if (throwable instanceof APIError) {
                     APIError apiError = (APIError) throwable;
-                    if (apiError.getCode() == HttpCode.CODE_AUTH_ERROR) {
-                        if (mListener != null) mListener.onAuthError();
+                    // 对token过期进行统一处理
+                    if (apiError.getCode() == HttpCode.CODE_TOKEN_ERROR) {
+                        if (mListener != null) {
+                            mListener.onAuthError();
+                        }
                     }
                 }
-
             }
         };
     }

@@ -1,5 +1,7 @@
 package com.hhh.lib_api.services.interfaces;
 
+import com.hhh.lib_core.beans.SampleUserBean;
+
 import io.reactivex.Observable;
 
 /**
@@ -7,6 +9,7 @@ import io.reactivex.Observable;
  */
 
 public interface ISampleService {
-    Observable<Boolean> addNewsComment(String id, String content);
-    Observable<Boolean> deleteNewsComment(String commentID);
+
+    Observable<SampleUserBean> getUserInfo(String userName, String userPsw);
+
 }

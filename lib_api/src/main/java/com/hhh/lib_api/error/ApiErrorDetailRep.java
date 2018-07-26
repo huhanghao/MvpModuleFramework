@@ -9,8 +9,7 @@ import java.util.List;
 public class ApiErrorDetailRep {
 
     private String timestamp;
-    private int status;
-    private String error;
+    private int error;
     private String message;
     private String path;
     private String exception;
@@ -24,19 +23,12 @@ public class ApiErrorDetailRep {
         return timestamp;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setError(String error) {
+    public void setError(int error) {
         this.error = error;
     }
 
-    public String getError() {
+    public int getError() {
         return error;
     }
 

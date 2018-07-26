@@ -5,10 +5,10 @@ import android.text.TextUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.hhh.lib_api.error.APIError;
+import com.hhh.lib_api.error.ApiErrorDetailRep;
 import com.hhh.lib_api.path.PathManager;
 import com.hhh.lib_api.services.interfaces.IHttpBaseService;
-import com.hhh.lib_api.token.TokenManager;
-import com.hhh.lib_api.error.ApiErrorDetailRep;
+import com.hhh.lib_core.model.UserInfoManager;
 import com.hhh.lib_core.model.WeConstants;
 
 import java.io.IOException;
@@ -58,13 +58,21 @@ public class APIHelper {
                         // 请求网络之前的预处理
                         Request original = chain.request();
                         String path = original.url().url().getPath();
-
                         Request.Builder reqBuilder = original.newBuilder();
 
+                        // 对网络请求参数进行预处理
                         if (PathManager.getInstance().isNeedToken(path)) {
-                            String token = TokenManager.getInstance().getToken();
-                            if (token != null)
-                                reqBuilder.header("Authorization", "Bearer ".concat(token));
+                            // 获取用户token
+                            String token = UserInfoManager.getInstance().getUserToken();
+                            // 若token为null则抛出异常
+                            if (TextUtils.isEmpty(token)) {
+                                ApiErrorDetailRep errorRep = new ApiErrorDetailRep();
+                                errorRep.setError(HttpCode.CODE_TOKEN_ERROR);
+                                errorRep.setMessage("token过期，请重新登录");
+
+                                throw new APIError(errorRep.getMessage(), errorRep.getError());
+                            }
+                            reqBuilder.header("Authorization", "Bearer ".concat(token));
                         }
 
                         Request realRequest = reqBuilder.build();
@@ -80,7 +88,7 @@ public class APIHelper {
                         String codeStr = String.valueOf(response.code());
 
                         // 解析错误码code
-                        if (!codeStr.equals(HttpCode.CODE_SUCCESS)) {
+                        if (!codeStr.equals(HttpCode.CODE_SUCCESS + "")) {
 
                             ApiErrorDetailRep rep;
                             String errorString = response.body().string();
@@ -91,7 +99,6 @@ public class APIHelper {
                             }
 
                             if (rep != null) {
-                                //
                                 if (TextUtils.isEmpty(rep.getMessage())) {
                                     throw new APIError("网络请求出错，请稍后重试", response.code());
                                 } else {

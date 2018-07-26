@@ -56,7 +56,7 @@ public class UtilViewSampleActivity extends XActivity {
 
         initPopupWindowAlert();
 
-        initBottomDialog(UtilViewSampleActivity.this,R.layout.app_sample_bottom_dialog_view);
+        initBottomDialog(UtilViewSampleActivity.this, R.layout.app_sample_bottom_dialog_view);
 
         initListener();
 
@@ -109,21 +109,21 @@ public class UtilViewSampleActivity extends XActivity {
         tvButtonShowLoading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showLoading("加载中");
+                showLoading("展示loading中", false);
             }
         });
 
         tvButtonHideLoading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    stopLoading();
+                stopLoading();
             }
         });
 
         tvShowError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showError("cuowu");
+                showError("出现了异常，请稍后再试~");
             }
         });
 

@@ -20,7 +20,7 @@ public class PathManager {
 
     private PathManager() {
         mPaths = new ArrayList<>();
-        mPaths.addAll(IndexPath.INDEX_PATHS);
+        mPaths.addAll(SamplePath.INDEX_PATHS);
     }
 
     public static PathManager getInstance() {

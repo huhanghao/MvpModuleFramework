@@ -7,8 +7,8 @@ package com.hhh.lib_api;
 
 public class HttpCode {
     public static int CODE_AUTH_ERROR = 401;
+    public static int CODE_TOKEN_ERROR = 600;      // token 错误
 
-
-    public static final int CODE_SUCCESS = 0;
+    public static final int CODE_SUCCESS = 200;   // 访问成功
     public static final int CODE_FAILED = -1;
 }

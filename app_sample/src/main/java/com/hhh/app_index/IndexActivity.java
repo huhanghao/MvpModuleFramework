@@ -21,24 +21,36 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
     @BindView(R2.id.tv_button_1)
     View tvButton1;
 
+    @BindView(R2.id.tv_button_2)
+    View tvButton2;
+
     @Override
     public void addView(Bundle savedInstanceState) {
         addMainView(R.layout.app_sample_activity_main);
         setBackIcon();
         setMidTitle("IndexActivity");
 
+        initListener();
+    }
+
+    private void initListener() {
+
         // 跳转至UtilView示例
         tvButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IndexActivity.this,UtilViewSampleActivity.class);
+                Intent intent = new Intent(IndexActivity.this, UtilViewSampleActivity.class);
                 startActivity(intent);
             }
         });
 
-        // 访问数据
-        getP().getDataFromNet(this,"1","2");
-
+        tvButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 访问数据
+                getP().getDataFromNet(IndexActivity.this, "gaozeqiu", "123456");
+            }
+        });
     }
 
     @Override
@@ -65,7 +77,7 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
 
     @Override
     protected void onMenuClicked(int id) {
-        if(id == R.id.send){
+        if (id == R.id.send) {
             ToastUtils.showShort("点击menu");
         }
     }

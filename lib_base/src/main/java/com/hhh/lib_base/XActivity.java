@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.hhh.lib_base.base_mvp.IBasePresenter;
 import com.hhh.lib_base.base_mvp.IBaseView;
+import com.hhh.lib_base.base_util_view.LoadingDialog;
 import com.hhh.lib_core.utils.ResUtils;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -38,6 +39,7 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
 
     // mvp 中的p对象
     private P p;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,7 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
         super.setContentView(mRootView);
 
         // 把actvity放到栈管理中
-        ActivityManager.getActivityManager().pushActivity(this);
+        ActivityStackManager.getActivityManager().pushActivity(this);
 
         // 将toolBar显示到界面
         setSupportActionBar(mToolbar);
@@ -172,31 +174,31 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
     }
 
     /********************************设置Loading相关********************************/
-
     @Override
     public void showLoading(String title) {
-        showLoading(true, title);
+        showLoading(title, true);
     }
 
     @Override
     public void stopLoading() {
-        showLoading(false, null);
+        LoadingDialog.getInstance(this).stopLoading();
     }
 
     public void showError(String msg) {
-        ProgressDialog.show(this, msg, null);
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setTitle("出现异常");
+        mProgressDialog.setMessage(msg);
+        mProgressDialog.setCanceledOnTouchOutside(true);
+        mProgressDialog.setCancelable(true); // 能够返回
+        mProgressDialog.show();
     }
 
 
     /**
      * loading
      */
-    public void showLoading(boolean isShow, String msg) {
-        findViewById(R.id.progress_area).setVisibility(isShow ? View.VISIBLE : View.GONE);
-        findViewById(R.id.message).setVisibility(msg == null ? View.GONE : View.VISIBLE);
-        if (msg != null) {
-            ((TextView) findViewById(R.id.message)).setText(msg);
-        }
+    public void showLoading(String msg, boolean canOutClick) {
+        LoadingDialog.getInstance(this).showLoading(msg, canOutClick);
     }
 
     @Override

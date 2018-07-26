@@ -19,6 +19,15 @@ public class ResUtils {
         mResouces = context.getResources();
     }
 
+
+    /**
+     * 获取AppContext
+     * @return
+     */
+    public static Context getAppContext() {
+        return mContext;
+    }
+
     public static boolean noContainsEmoji(String str) {//真为不含有表情
         int len = str.length();
         for (int i = 0; i < len; i++) {
@@ -40,9 +49,13 @@ public class ResUtils {
     }
 
 
-
+    /**
+     * 获取drawable
+     * @param drawableID
+     * @return
+     */
     public static Drawable getDrawable(int drawableID) {
-        if( drawableID < 0 )return null;
+        if (drawableID < 0) return null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             return mResouces.getDrawable(drawableID, null);
         } else {
@@ -50,11 +63,21 @@ public class ResUtils {
         }
     }
 
+    /**
+     * 获取颜色
+     * @param id
+     * @return
+     */
     public static int getColor(int id) {
         return mResouces.getColor(id);
     }
 
-    public static String getString(int resId){
+    /**
+     * 获取String
+     * @param resId
+     * @return
+     */
+    public static String getString(int resId) {
         return mResouces.getString(resId);
     }
 }

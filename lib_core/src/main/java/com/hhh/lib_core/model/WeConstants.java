@@ -10,8 +10,7 @@ public class WeConstants {
     private static final boolean isDebug = true;
 
     public static final String WEBSITE = BuildConfig.DEBUG ? "" : "";
-//    public static final String API_ADDRESS = BuildConfig.DEBUG ? "http://192.168.7.74:3000" : "http://119.23.19.142:3000";
-    public static final String API_ADDRESS = BuildConfig.DEBUG ? "http://119.23.19.142:3000" : "http://119.23.19.142:3000";
+    public static final String API_ADDRESS = BuildConfig.DEBUG ? "http://zhongtie.dev.ynbsk.com" : "http://zhongtie.dev.ynbsk.com";
 
     public static final String INTENT_PARAM_NAME_1 = "param_1";
     public static final String INTENT_PARAM_NAME_2 = "param_2";

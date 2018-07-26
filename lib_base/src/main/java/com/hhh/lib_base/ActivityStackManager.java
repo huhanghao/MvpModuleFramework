@@ -7,23 +7,23 @@ import java.util.Stack;
 /**
  * 存储activity栈
  */
-public class ActivityManager {
+public class ActivityStackManager {
 
     private static Stack<Activity> activityStack;
-    private static ActivityManager instance;
+    private static ActivityStackManager instance;
 
-    private ActivityManager(){
+    private ActivityStackManager(){
     }
 
     /**
      * 获取activityManager
      * @return
      */
-    public static ActivityManager getActivityManager(){
+    public static ActivityStackManager getActivityManager(){
         if (instance == null) {
-            synchronized (ActivityManager.class){
+            synchronized (ActivityStackManager.class){
                 if(instance==null){
-                    instance = new ActivityManager();
+                    instance = new ActivityStackManager();
                     instance.activityStack = new Stack();
                 }
             }
