@@ -1,6 +1,5 @@
 package com.hhh.app_index.presenter;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.hhh.app_index.IndexActivity;
 import com.hhh.app_index.v.IIndexActivityView;
 import com.hhh.lib_api.services.impl.SampleServiceImp;
@@ -30,7 +29,8 @@ public class IndexSamplePresenter extends IGetBaseInfoSamplePresenter<IIndexActi
                         LoadingDialog.getInstance(indexActivity).stopLoading();
                         SampleUserBean sampleUserBean = (SampleUserBean) object;
                         UserInfoManager.getInstance().saveUserInfo(sampleUserBean);
-                        ToastUtils.showShort("完成了加载数据！");
+
+                        getV().returnSampleData("加在完成了");
 
                     }
                 }, new Consumer<Throwable>() {

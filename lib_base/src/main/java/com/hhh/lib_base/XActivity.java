@@ -65,6 +65,10 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+
+        // 设置默认选项
+        setMidTitle(ResUtils.getString(R.string.app_name));
+
         // 用户写处理方法的入口
         addView(savedInstanceState);
 
@@ -77,8 +81,6 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
             }
         });
 
-        // 设置默认选项
-        setMidTitle(ResUtils.getString(R.string.app_name));
 
     }
 
@@ -126,6 +128,18 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
 
     /********************************设置toolbar相关内容********************************/
 
+
+
+
+    protected void hideToolBar() {
+        mToolbar.setVisibility(View.GONE);
+    }
+
+
+    /**
+     * 设置toolBar的背景
+     * @param res
+     */
     protected void setToolBarBg(int res) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mToolbar.setBackgroundColor(getColor(res));
@@ -136,20 +150,36 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
         }
     }
 
+    /**
+     * 设置中间title
+     * @param str
+     */
     protected void setMidTitle(String str) {
         setTitle("");
         mTvMidTitle.setVisibility(View.VISIBLE);
         mTvMidTitle.setText(str);
     }
 
+    /**
+     * 设置返回按钮
+     */
     protected void setBackIcon() {
         mToolbar.setNavigationIcon(R.drawable.ic_back);
     }
 
+    /**
+     * 设置返回按钮样式
+     * @param resID
+     */
     protected void setBackIcon(int resID) {
         mToolbar.setNavigationIcon(resID);
     }
 
+    /**
+     * 设置menu点击
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

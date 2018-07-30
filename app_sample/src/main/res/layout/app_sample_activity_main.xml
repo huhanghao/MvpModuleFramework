@@ -17,7 +17,6 @@
         android:text="跳转至示UtilView示例"
         android:textColor="@color/white" />
 
-
     <TextView
         android:id="@+id/tv_button_2"
         android:layout_width="wrap_content"
@@ -26,6 +25,16 @@
         android:background="@color/colorAccent"
         android:padding="10dp"
         android:text="测试网络获取_登录"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_button_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorAccent"
+        android:padding="10dp"
+        android:text="测试Viewpager+Fragment"
         android:textColor="@color/white" />
 
 </LinearLayout>

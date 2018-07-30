@@ -9,7 +9,9 @@
         <activity
             android:name=".IndexActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.TestActivity"></activity>
+        <activity
+            android:name=".activity.FragmentSampleActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

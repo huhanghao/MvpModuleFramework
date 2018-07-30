@@ -16,9 +16,11 @@ import com.hhh.app_index.R2;
 import com.hhh.lib_base.XActivity;
 import com.hhh.lib_base.base_mvp.IBasePresenter;
 import com.hhh.lib_base.base_util_view.BottomUpSelectDialog;
+import com.hhh.lib_base.base_util_view.HTMLView;
 import com.hhh.lib_base.base_util_view.PopupWindowAlert;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -42,9 +44,17 @@ public class UtilViewSampleActivity extends XActivity {
     @BindView(R2.id.tv_show_error)
     View tvShowError;
 
+    @BindView(R2.id.hv_html)
+    HTMLView hvHtml;
+
     private BottomUpSelectDialog mBottomUpSelectDialog;
     private PopupWindowAlert mPopupWindowAlert;
     private Dialog dialog;
+
+
+    private String htmlContent = "<p>云闪闪平台苹果版的APP已上架，使用苹果手机的朋友可以去公众号商务中心下载使用，APP体验更流畅</p>" +
+            "<\\/p><p><img title=\"\" src=\"http://img1.cache.netease.com/catchpic/7/7F/7F9C353236E073FA3FD66708AFA58935.png\"width=\"300\" height=\"291\">" +"<\\/p>";
+
 
     @Override
     public void addView(Bundle savedInstanceState) {
@@ -59,6 +69,15 @@ public class UtilViewSampleActivity extends XActivity {
         initBottomDialog(UtilViewSampleActivity.this, R.layout.app_sample_bottom_dialog_view);
 
         initListener();
+
+        hvHtml.setRichText(htmlContent);
+
+        hvHtml.setOnRichTextImageClickListener(new HTMLView.OnRichTextImageClickListener() {
+            @Override
+            public void imageClicked(List<String> imageUrls, int position) {
+                ToastUtils.showShort("点击图片为："+imageUrls+"， position = " + position);
+            }
+        });
 
     }
 

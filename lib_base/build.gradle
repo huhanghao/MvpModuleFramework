@@ -42,4 +42,11 @@ dependencies {
     // butter knife
     api rootProject.ext.lib_base_dependencies["butterknife"]
     annotationProcessor rootProject.ext.lib_base_dependencies["butterknife-compiler"]
+    // adapter
+    api rootProject.ext.lib_base_dependencies["BaseRecyclerViewAdapter"]
+    // viewRefresh
+    api rootProject.ext.lib_base_dependencies["SmartRefreshLayout"]
+    api rootProject.ext.lib_base_dependencies["SmartRefreshHeader"]
+
+
 }

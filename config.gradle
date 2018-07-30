@@ -13,7 +13,7 @@ ext {
 
     // 公用的涉及到显示的库
     lib_base_dependencies = [
-
+            // android base
             "design"                    :   'com.android.support:design:27.1.1',
             "constraint-layout"         :   'com.android.support.constraint:constraint-layout:1.1.2',
             "support-vector-drawable"   :   'com.android.support:support-vector-drawable:27.1.1',
@@ -24,6 +24,11 @@ ext {
             // butterknif
             "butterknife"               :   'com.jakewharton:butterknife:8.8.1',
             "butterknife-compiler"      :   'com.jakewharton:butterknife-compiler:8.8.1',
+            // list adapter
+            "BaseRecyclerViewAdapter"   :   'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30',
+            // list
+            "SmartRefreshLayout"        : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1' ,
+            "SmartRefreshHeader"        : 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1' , // 用于一些特殊的header
     ]
 
     // 最底层的依赖工具库

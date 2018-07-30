@@ -1,0 +1,7 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="app_sample_activity_horizontal_margin">16dp</dimen>
+    <dimen name="app_sample_activity_vertical_margin">16dp</dimen>
+    <dimen name="app_sample_activity_tabbar_height">47dp</dimen>
+    <dimen name="app_sample_activity_tabbar_height2">49dp</dimen>
+</resources>
