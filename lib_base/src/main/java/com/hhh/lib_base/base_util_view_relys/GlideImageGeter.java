@@ -1,4 +1,4 @@
-package com.hhh.lib_base.view_rely_utils;
+package com.hhh.lib_base.base_util_view_relys;
 
 /**
  * Created by Jesson_Yi on 2016/6/22.

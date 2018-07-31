@@ -27,8 +27,11 @@ ext {
             // list adapter
             "BaseRecyclerViewAdapter"   :   'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30',
             // list
-            "SmartRefreshLayout"        : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1' ,
-            "SmartRefreshHeader"        : 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1' , // 用于一些特殊的header
+            "SmartRefreshLayout"        :   'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1' ,
+            "SmartRefreshHeader"        :   'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1' , // 用于一些特殊的header
+            // imagePicker
+            "imagepicker"               :   'com.lzy.widget:imagepicker:0.6.1' , // 用于一些特殊的header
+
     ]
 
     // 最底层的依赖工具库
@@ -50,11 +53,14 @@ ext {
             // rx_life_cycle
             "rxlifecycle"               :   'com.trello.rxlifecycle2:rxlifecycle:2.2.1',
             "rxlifecycle_components"    :   'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1',
+            // easyPermission
+            "easypermissions"           :   'pub.devrel:easypermissions:1.2.0',
+
     ]
 
     // 网络访问请求依赖库
     lib_api_dependencies = [
-            // retrfit
+            // retrofit
             "retrofit"                      :   'com.squareup.retrofit2:retrofit:2.3.0',
             "retrofit_gson_converter"       :   'com.squareup.retrofit2:converter-gson:2.3.0',
             // okhttp

@@ -38,4 +38,6 @@ dependencies {
     // retrofit_life_cycle
     api rootProject.ext.lib_core_dependencies["rxlifecycle"]
     api rootProject.ext.lib_core_dependencies["rxlifecycle_components"]
+    // easypermission
+    api rootProject.ext.lib_core_dependencies["easypermissions"]
 }

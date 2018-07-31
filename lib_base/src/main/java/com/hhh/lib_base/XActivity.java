@@ -46,6 +46,9 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS); // 需要动画切换
+        overridePendingTransition(R.anim.left_in, R.anim.right_out);
+
         // 在用butterknif绑定前获取需要设置的View
         mRootView = (RelativeLayout) View.inflate(this, R.layout.activity_rootview, null);
         mToolbar = mRootView.findViewById(R.id.toolbar);
@@ -129,8 +132,6 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
     /********************************设置toolbar相关内容********************************/
 
 
-
-
     protected void hideToolBar() {
         mToolbar.setVisibility(View.GONE);
     }
@@ -138,6 +139,7 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
 
     /**
      * 设置toolBar的背景
+     *
      * @param res
      */
     protected void setToolBarBg(int res) {
@@ -152,6 +154,7 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
 
     /**
      * 设置中间title
+     *
      * @param str
      */
     protected void setMidTitle(String str) {
@@ -169,6 +172,7 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
 
     /**
      * 设置返回按钮样式
+     *
      * @param resID
      */
     protected void setBackIcon(int resID) {
@@ -177,6 +181,7 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
 
     /**
      * 设置menu点击
+     *
      * @param item
      * @return
      */
@@ -234,11 +239,19 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         mUnbinder.unbind();
         if (getP() != null) {
             getP().detachV();
         }
         p = null;
         stopLoading();
+    }
+
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.alpha_open,R.anim.alpha_close);
     }
 }

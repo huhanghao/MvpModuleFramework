@@ -12,7 +12,7 @@ import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.hhh.lib_base.view_rely_utils.GlideImageGeter;
+import com.hhh.lib_base.base_util_view_relys.GlideImageGeter;
 
 import java.util.ArrayList;
 import java.util.List;

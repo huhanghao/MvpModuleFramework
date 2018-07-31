@@ -1,6 +1,8 @@
 package com.hhh.newmodule;
 
+import android.Manifest;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -8,10 +10,13 @@ import android.view.View;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ToastUtils;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import pub.devrel.easypermissions.EasyPermissions;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
 
     @BindView(R.id.tv_button)
     View tvButton;
@@ -33,8 +38,22 @@ public class MainActivity extends AppCompatActivity {
                         .navigation(MainActivity.this);
             }
         });
+
+        requiresPermission();
     }
 
+
+    private void requiresPermission() {
+        String[] perms = {
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA};
+
+        if (EasyPermissions.hasPermissions(this, perms)) {
+            ToastUtils.showShort("");
+        } else {
+
+        }
+    }
 
 
     @Override
@@ -59,5 +78,15 @@ public class MainActivity extends AppCompatActivity {
             ToastUtils.showShort("再次按返回键将退出", MainActivity.this);
             lastExitRequestTime = System.currentTimeMillis();
         }
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+
     }
 }

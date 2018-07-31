@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.bumptech.glide.Glide;
 import com.hhh.app_index.R;
 import com.hhh.app_index.R2;
 import com.hhh.lib_base.XActivity;
@@ -18,6 +20,9 @@ import com.hhh.lib_base.base_mvp.IBasePresenter;
 import com.hhh.lib_base.base_util_view.BottomUpSelectDialog;
 import com.hhh.lib_base.base_util_view.HTMLView;
 import com.hhh.lib_base.base_util_view.PopupWindowAlert;
+import com.hhh.lib_base.image_loader_util.GlideIUtils;
+import com.hhh.lib_base.image_loader_util.transform.CircleTransformation;
+import com.hhh.lib_base.image_loader_util.transform.RadiusTransformation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +52,12 @@ public class UtilViewSampleActivity extends XActivity {
     @BindView(R2.id.hv_html)
     HTMLView hvHtml;
 
+    @BindView(R2.id.iv_img1)
+    ImageView ivImg1;
+
+    @BindView(R2.id.iv_img2)
+    ImageView ivImg2;
+
     private BottomUpSelectDialog mBottomUpSelectDialog;
     private PopupWindowAlert mPopupWindowAlert;
     private Dialog dialog;
@@ -55,6 +66,7 @@ public class UtilViewSampleActivity extends XActivity {
     private String htmlContent = "<p>云闪闪平台苹果版的APP已上架，使用苹果手机的朋友可以去公众号商务中心下载使用，APP体验更流畅</p>" +
             "<\\/p><p><img title=\"\" src=\"http://img1.cache.netease.com/catchpic/7/7F/7F9C353236E073FA3FD66708AFA58935.png\"width=\"300\" height=\"291\">" +"<\\/p>";
 
+    public static final String cat_thumbnail = "https://raw.githubusercontent.com/sfsheng0322/GlideImageView/master/resources/cat_thumbnail.jpg";
 
     @Override
     public void addView(Bundle savedInstanceState) {
@@ -78,6 +90,16 @@ public class UtilViewSampleActivity extends XActivity {
                 ToastUtils.showShort("点击图片为："+imageUrls+"， position = " + position);
             }
         });
+
+        initImage();
+
+    }
+
+    private void initImage() {
+
+        Glide.with(this).load(cat_thumbnail).apply(GlideIUtils.getBaseOponion().transform(new RadiusTransformation(5))).into(ivImg1);
+
+        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideIUtils.getBaseOponion().transform(new CircleTransformation())).into(ivImg2);
 
     }
 

@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -39,10 +40,15 @@ public class PopupWindowAlert {
     private ImageView iv_thumb;
     private LinearLayout ll_root_view;
 
+
+    public interface OnItemListener {
+        void result(int platform);
+
+    }
+
     public PopupWindowAlert(Context context, OnItemListener mOnItemListener) {
         this.context = context;
         this.mOnItemListener = mOnItemListener;
-
         initViews();
     }
 
@@ -58,9 +64,30 @@ public class PopupWindowAlert {
         initViews();
     }
 
-    public interface OnItemListener {
-        void result(int platform);
+    private void initViews() {
+
+        View view = LayoutInflater.from(context).inflate(R.layout.pop_layout_dialog, null);
+
+        tv_dialog_title = view.findViewById(R.id.tv_dialog_title);
+        tv_pop_content = view.findViewById(R.id.tv_pop_content);
+        btn_no = view.findViewById(R.id.btn_no);
+        btn_yes = view.findViewById(R.id.btn_yes);
+        iv_thumb = view.findViewById(R.id.iv_thumb);
+        ll_root_view = view.findViewById(R.id.ll_root_view);
+
+        btn_no.setOnClickListener(listener);
+        btn_yes.setOnClickListener(listener);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setCancelable(canOutSideClick);
+        builder.setView(view);
+
+        pop = builder.create();
+
+        // 解决AlertDialog中edittext不显示输入框的问题
+        pop.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
     }
+
 
     /**
      * 设置POPwindow值
@@ -121,27 +148,6 @@ public class PopupWindowAlert {
     }
 
 
-
-    private void initViews() {
-
-        View view = LayoutInflater.from(context).inflate(R.layout.pop_layout_dialog, null);
-
-        tv_dialog_title = view.findViewById(R.id.tv_dialog_title);
-        tv_pop_content = view.findViewById(R.id.tv_pop_content);
-        btn_no = view.findViewById(R.id.btn_no);
-        btn_yes = view.findViewById(R.id.btn_yes);
-        iv_thumb = view.findViewById(R.id.iv_thumb);
-        ll_root_view = view.findViewById(R.id.ll_root_view);
-
-        btn_no.setOnClickListener(listener);
-        btn_yes.setOnClickListener(listener);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setCancelable(canOutSideClick);
-        builder.setView(view);
-
-        pop = builder.create();
-    }
 
     public void closePop() {
         if (pop != null) {
