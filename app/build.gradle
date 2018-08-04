@@ -24,11 +24,11 @@ android {
     }
     buildTypes {
         debug{
-            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true    // 进行代码压缩，去除无用代码
+            shrinkResources true // 是否去除无效的资源文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

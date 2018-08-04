@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 Manifest.permission.CAMERA};
 
         if (EasyPermissions.hasPermissions(this, perms)) {
-            ToastUtils.showShort("");
+            ToastUtils.showShort("已申请权限");
         } else {
 
         }

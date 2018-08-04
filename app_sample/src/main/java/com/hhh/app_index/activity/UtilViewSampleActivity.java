@@ -2,17 +2,22 @@ package com.hhh.app_index.activity;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 
+import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.hhh.app_index.R;
 import com.hhh.app_index.R2;
 import com.hhh.lib_base.XActivity;
@@ -58,13 +63,19 @@ public class UtilViewSampleActivity extends XActivity {
     @BindView(R2.id.iv_img2)
     ImageView ivImg2;
 
+    @BindView(R2.id.iv_img3)
+    ImageView ivImg3;
+
+    @BindView(R2.id.iv_img4)
+    ImageView ivImg4;
+
     private BottomUpSelectDialog mBottomUpSelectDialog;
     private PopupWindowAlert mPopupWindowAlert;
     private Dialog dialog;
 
 
     private String htmlContent = "<p>云闪闪平台苹果版的APP已上架，使用苹果手机的朋友可以去公众号商务中心下载使用，APP体验更流畅</p>" +
-            "<\\/p><p><img title=\"\" src=\"http://img1.cache.netease.com/catchpic/7/7F/7F9C353236E073FA3FD66708AFA58935.png\"width=\"300\" height=\"291\">" +"<\\/p>";
+            "<\\/p><p><img title=\"\" src=\"http://img1.cache.netease.com/catchpic/7/7F/7F9C353236E073FA3FD66708AFA58935.png\"width=\"300\" height=\"291\">" + "<\\/p>";
 
     public static final String cat_thumbnail = "https://raw.githubusercontent.com/sfsheng0322/GlideImageView/master/resources/cat_thumbnail.jpg";
 
@@ -87,7 +98,7 @@ public class UtilViewSampleActivity extends XActivity {
         hvHtml.setOnRichTextImageClickListener(new HTMLView.OnRichTextImageClickListener() {
             @Override
             public void imageClicked(List<String> imageUrls, int position) {
-                ToastUtils.showShort("点击图片为："+imageUrls+"， position = " + position);
+                ToastUtils.showShort("点击图片为：" + imageUrls + "， position = " + position);
             }
         });
 
@@ -100,6 +111,28 @@ public class UtilViewSampleActivity extends XActivity {
         Glide.with(this).load(cat_thumbnail).apply(GlideIUtils.getBaseOponion().transform(new RadiusTransformation(5))).into(ivImg1);
 
         Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideIUtils.getBaseOponion().transform(new CircleTransformation())).into(ivImg2);
+
+        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideIUtils.getBaseOponion().override(400, 400)).into(ivImg3);
+
+        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideIUtils.getBaseOponion()).into(new SimpleTarget<Drawable>() {
+            @Override
+            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
+                // 将图片的宽缩放到与屏幕相同，高等比例缩放
+                int imageWitdh = resource.getIntrinsicWidth();
+                int imageHeight = resource.getIntrinsicHeight();
+
+                int screenWdth = ScreenUtils.getScreenWidth();
+
+                ViewGroup.LayoutParams layoutParams = ivImg4.getLayoutParams();
+                layoutParams.width = screenWdth;
+                float ratio = (float) screenWdth / imageWitdh;
+                int height = (int) (imageHeight * ratio);
+                layoutParams.height = height;
+
+                ivImg4.setLayoutParams(layoutParams);
+                ivImg4.setImageDrawable(resource);
+            }
+        });
 
     }
 
