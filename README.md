@@ -9,7 +9,7 @@
 
 ## 框架展示
 
-![](http://pa97zk4aq.bkt.clouddn.com/2018-08-04-094223.png)
+<img src="http://pa97zk4aq.bkt.clouddn.com/2018-08-04-094223.png" width="1000px" />
 
 ## 关于mvp
 
