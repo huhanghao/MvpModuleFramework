@@ -196,6 +196,61 @@ https://github.com/grandcentrix/tray
 对于一般的sp来说跨进程时不安全的。所以这里我们采用Tray来取代sp实现简单数据的持久化存储。
 
 
+## AndroidRichText
+
+### Git地址
+
+https://github.com/jesson1989/AndroidRichText
+
+### 简介
+
+用来做富文本显示，内部内容容器是一个spannable，支持图片的点击。
+
+
+
+## SmartRefreshLayout
+
+### Git地址
+
+https://github.com/scwang90/SmartRefreshLayout
+
+使用文档：
+
+https://github.com/scwang90/SmartRefreshLayout/blob/master/art/md_property.md
+
+### 简介：
+
+这个第三方主要用于下拉加载和上拉刷新的配置，配合recycleView使用
+
+PullToRefresh支持；
+
+## ImagePicker
+
+### Git地址
+
+https://github.com/jeasonlzy/ImagePicker
+
+### 简介：
+
+ Android自定义相册，完全仿微信UI，实现了拍照、图片选择（单选/多选）、 裁剪 、旋转、等功能。
+
+## EasyPermission
+
+### Git地址：
+
+https://github.com/googlesamples/easypermissions
+
+### 描述：
+
+在Android6.0之后，对一些比较重要的特殊权限（六大权限），在使用前都需要去请求权限。这里我们就用谷歌力荐的EasyPermission做对应的权限申请。这个框架封装好了请求所需要的权限请求和对应的请求界面，所以整体来说还是比较好用的。
+
+
+
+
+
+
+
+
 # 封装好的一些模块
 
 ## ActivityStackManager
