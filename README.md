@@ -395,8 +395,17 @@ AndroidUtils不能触及的工具类的调用
 以sp形式，存储在本地的信息。
 
 
+## CommonShapeButton
 
+### 描述：
 
+在使用按钮的时候常常因为按钮的圆角，边框样式不得不去定义不同的shape，从而增加res中shape的数量，所以，引入这个控件，让按钮的样式定义更加方便。
+
+git地址：https://github.com/michaelxs/Android-CommonShapeButton?utm_source=androidweekly.io&utm_medium=website
+
+### 使用场景
+
+![](http://pa97zk4aq.bkt.clouddn.com/2018-08-08-091255.png)
 
 
 

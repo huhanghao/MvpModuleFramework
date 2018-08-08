@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             
-            <com.hhh.lib_base.base_util_view.HTMLView
+            <com.hhh.lib_base.views.HTMLView
                 android:id="@+id/hv_html"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

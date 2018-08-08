@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.hhh.lib_base.base_mvp.IBasePresenter;
 import com.hhh.lib_base.base_mvp.IBaseView;
-import com.hhh.lib_base.base_util_view.LoadingDialog;
+import com.hhh.lib_base.views.LoadingDialog;
 import com.hhh.lib_core.utils.ResUtils;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 

@@ -1,4 +1,4 @@
-package com.hhh.lib_base.base_util_view;
+package com.hhh.lib_base.views;
 
 import android.content.Context;
 import android.support.v4.view.ViewCompat;

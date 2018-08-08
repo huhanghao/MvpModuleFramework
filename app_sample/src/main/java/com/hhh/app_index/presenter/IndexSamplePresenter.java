@@ -4,7 +4,7 @@ import com.hhh.app_index.IndexActivity;
 import com.hhh.app_index.v.IIndexActivityView;
 import com.hhh.lib_api.services.impl.SampleServiceImp;
 import com.hhh.lib_api.services.interfaces.ISampleService;
-import com.hhh.lib_base.base_util_view.LoadingDialog;
+import com.hhh.lib_base.views.LoadingDialog;
 import com.hhh.lib_core.beans.SampleUserBean;
 import com.hhh.lib_core.model.UserInfoManager;
 import com.trello.rxlifecycle2.android.ActivityEvent;

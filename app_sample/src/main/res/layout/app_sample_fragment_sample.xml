@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.SampleFragment"
@@ -13,8 +14,18 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/steelblue"
         android:text="1234567890" />
+
+    <com.hhh.lib_base.views.CommonShapeButton
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="按钮样式+水波纹+填充颜色+圆角"
+        android:textColor="#fff"
+        app:csb_activeEnable="true"
+        app:csb_cornerRadius="50dp"
+        app:csb_fillColor="#00bc71" />
 
 </LinearLayout>
