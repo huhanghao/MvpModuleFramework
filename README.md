@@ -265,6 +265,36 @@ https://github.com/googlesamples/easypermissions
 
 在Android6.0之后，对一些比较重要的特殊权限（六大权限），在使用前都需要去请求权限。这里我们就用谷歌力荐的EasyPermission做对应的权限申请。这个框架封装好了请求所需要的权限请求和对应的请求界面，所以整体来说还是比较好用的。
 
+## Android-PickerView
+
+### Git地址
+
+https://github.com/Bigkoo/Android-PickerView
+
+### 描述：
+
+是一款仿iOS的PickerView控件，带有3D圆弧效果，并封装了时间选择和选项选择这两种选择器。
+
+![image-20180808143955621](http://pa97zk4aq.bkt.clouddn.com/2018-08-08-063958.png)
+
+
+
+## Banner
+
+### Git地址
+
+https://github.com/youth5201314/banner
+
+### 描述
+
+现在的绝大数app都有banner界面，实现循环播放多个广告图片和手动滑动循环等功能。因为ViewPager并不支持循环翻页， 所以要实现循环还得需要自己去动手，我就把项目中的控件剔了出来，希望大家觉得有用。目前框架可以进行不同样式、不同动画设置， 以及完善的api方法能满足大部分的需求了。
+
+![image-20180808144221928](http://pa97zk4aq.bkt.clouddn.com/2018-08-08-064223.png)
+
+
+
+
+
 
 
 

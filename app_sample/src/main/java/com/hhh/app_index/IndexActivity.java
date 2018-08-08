@@ -6,12 +6,17 @@ import android.view.Menu;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hhh.app_index.activity.FragmentSampleActivity;
 import com.hhh.app_index.activity.UtilViewSampleActivity;
 import com.hhh.app_index.presenter.IndexSamplePresenter;
 import com.hhh.app_index.v.IIndexActivityView;
 import com.hhh.lib_base.XActivity;
+
+import java.util.Date;
 
 import butterknife.BindView;
 
@@ -28,13 +33,31 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
     @BindView(R2.id.tv_button_3)
     View tvButton3;
 
+    @BindView(R2.id.tv_button_4)
+    View tvButton4;
+
+    private TimePickerView pvTime;
+
     @Override
     public void addView(Bundle savedInstanceState) {
         addMainView(R.layout.app_sample_activity_main);
         setBackIcon();
         setMidTitle("IndexActivity");
 
+        initTimePicker();
+
         initListener();
+    }
+
+
+    private void initTimePicker() {
+        //时间选择器
+        pvTime = new TimePickerBuilder(IndexActivity.this, new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {
+                ToastUtils.showShort(date.toString());
+            }
+        }).build();
     }
 
     private void initListener() {
@@ -61,6 +84,13 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
             public void onClick(View v) {
                 Intent intent = new Intent(IndexActivity.this, FragmentSampleActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        tvButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pvTime.show();
             }
         });
     }

@@ -25,7 +25,7 @@ import com.hhh.lib_base.base_mvp.IBasePresenter;
 import com.hhh.lib_base.base_util_view.BottomUpSelectDialog;
 import com.hhh.lib_base.base_util_view.HTMLView;
 import com.hhh.lib_base.base_util_view.PopupWindowAlert;
-import com.hhh.lib_base.image_loader_util.GlideIUtils;
+import com.hhh.lib_base.image_loader_util.GlideUtils;
 import com.hhh.lib_base.image_loader_util.transform.CircleTransformation;
 import com.hhh.lib_base.image_loader_util.transform.RadiusTransformation;
 
@@ -108,13 +108,13 @@ public class UtilViewSampleActivity extends XActivity {
 
     private void initImage() {
 
-        Glide.with(this).load(cat_thumbnail).apply(GlideIUtils.getBaseOponion().transform(new RadiusTransformation(5))).into(ivImg1);
+        Glide.with(this).load(cat_thumbnail).apply(GlideUtils.getBaseOponion().transform(new RadiusTransformation(5))).into(ivImg1);
 
-        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideIUtils.getBaseOponion().transform(new CircleTransformation())).into(ivImg2);
+        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideUtils.getBaseOponion().transform(new CircleTransformation())).into(ivImg2);
 
-        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideIUtils.getBaseOponion().override(400, 400)).into(ivImg3);
+        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideUtils.getBaseOponion().override(400, 400)).into(ivImg3);
 
-        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideIUtils.getBaseOponion()).into(new SimpleTarget<Drawable>() {
+        Glide.with(this).load(R.mipmap.app_sample_start).apply(GlideUtils.getBaseOponion()).into(new SimpleTarget<Drawable>() {
             @Override
             public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
                 // 将图片的宽缩放到与屏幕相同，高等比例缩放

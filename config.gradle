@@ -30,7 +30,11 @@ ext {
             "SmartRefreshLayout"        :   'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1' ,
             "SmartRefreshHeader"        :   'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1' , // 用于一些特殊的header
             // imagePicker
-            "imagepicker"               :   'com.lzy.widget:imagepicker:0.6.1' , // 用于一些特殊的header
+            "imagepicker"               :   'com.lzy.widget:imagepicker:0.6.1' , // 用于一些特殊的header 和 footer
+            // 涉及包括bao'kutimePicker 和 options picker的功能
+            "Android-PickerView"        :   'com.contrarywind:Android-PickerView:4.1.6' ,
+            //  头部广告banner
+            "banner"                    :   'com.youth.banner:banner:1.4.10' ,
 
     ]
 

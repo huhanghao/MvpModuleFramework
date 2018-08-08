@@ -49,6 +49,10 @@ dependencies {
     api rootProject.ext.lib_base_dependencies["SmartRefreshHeader"]
     // imagePicker
     api rootProject.ext.lib_base_dependencies["imagepicker"]
+    // timepicker & options picker
+    api rootProject.ext.lib_base_dependencies["Android-PickerView"]
+    // banner
+    api rootProject.ext.lib_base_dependencies["banner"]
 
 
 }

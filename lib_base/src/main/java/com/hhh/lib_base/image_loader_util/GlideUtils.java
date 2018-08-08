@@ -7,7 +7,7 @@ import com.hhh.lib_base.R;
 /**
  * 图片加载、处理工具
  */
-public class GlideIUtils {
+public class GlideUtils {
 
     public static RequestOptions getBaseOponion(){
         return  new RequestOptions()

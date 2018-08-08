@@ -37,4 +37,14 @@
         android:text="测试Viewpager+Fragment"
         android:textColor="@color/white" />
 
+    <TextView
+        android:id="@+id/tv_button_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorAccent"
+        android:padding="10dp"
+        android:text="测试时间选择"
+        android:textColor="@color/white" />
+
 </LinearLayout>
