@@ -48,16 +48,25 @@ public class LoadingDialog {
      * @return
      */
     public void showLoading(String msg, boolean cancelable) {
-        mDialog = new Dialog(mContext, R.style.CustomProgressDialog);
-        View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_loading, null);
-        tvContent = (TextView) view.findViewById(R.id.tv_dialog_content);
-        tvContent.setText(msg);
+        if(mDialog== null){
+            mDialog = new Dialog(mContext, R.style.CustomProgressDialog);
+            View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_loading, null);
+            tvContent = (TextView) view.findViewById(R.id.tv_dialog_content);
+            tvContent.setText(msg);
 
-        mDialog.setContentView(view, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-        mDialog.setCancelable(true);
-        mDialog.setCanceledOnTouchOutside(true);
-        mDialog.setCanceledOnTouchOutside(cancelable);
-        mDialog.show();
+            mDialog.setContentView(view, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+            mDialog.setCancelable(true);
+            mDialog.setCanceledOnTouchOutside(true);
+            mDialog.setCanceledOnTouchOutside(cancelable);
+            mDialog.show();
+        }else{
+            View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_loading, null);
+            tvContent = (TextView) view.findViewById(R.id.tv_dialog_content);
+            tvContent.setText(msg);
+            mDialog.setContentView(view, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+            mDialog.setCanceledOnTouchOutside(cancelable);
+            mDialog.show();
+        }
     }
 
     public void showLoading() {
