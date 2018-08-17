@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
@@ -15,6 +16,11 @@ import com.hhh.app_index.activity.UtilViewSampleActivity;
 import com.hhh.app_index.presenter.IndexSamplePresenter;
 import com.hhh.app_index.v.IIndexActivityView;
 import com.hhh.lib_base.XActivity;
+import com.hhh.lib_core.event.SampleMessageEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Date;
 
@@ -36,7 +42,19 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
     @BindView(R2.id.tv_button_4)
     View tvButton4;
 
+    @BindView(R2.id.tv_msg_show)
+    TextView tvMsgShow;
+
+    @BindView(R2.id.tv_button_5)
+    View tvButton5;
+
+    @BindView(R2.id.tv_button_6)
+    View tvButton6;
+
     private TimePickerView pvTime;
+
+    // 消息事件是否注册
+    private boolean isRegistered = false;
 
     @Override
     public void addView(Bundle savedInstanceState) {
@@ -93,6 +111,26 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
                 pvTime.show();
             }
         });
+
+        tvButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showShort("已注册消息事件");
+                if(!isRegistered){
+                    isRegistered = true;
+                    EventBus.getDefault().register(IndexActivity.this);
+                }
+            }
+        });
+
+        tvButton6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().unregister(IndexActivity.this);
+                ToastUtils.showShort("已解绑册消息时间");
+                isRegistered = false;
+            }
+        });
     }
 
     @Override
@@ -123,4 +161,11 @@ public class IndexActivity extends XActivity<IndexSamplePresenter> implements II
             ToastUtils.showShort("点击menu");
         }
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(SampleMessageEvent event) {
+        tvMsgShow.setText(event.getmMsg());
+        ToastUtils.showShort("已接收消息");
+    }
+
 }

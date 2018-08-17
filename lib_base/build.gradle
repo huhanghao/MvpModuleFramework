@@ -54,5 +54,4 @@ dependencies {
     // banner
     api rootProject.ext.lib_base_dependencies["banner"]
 
-
 }

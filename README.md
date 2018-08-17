@@ -184,11 +184,35 @@ https://www.jianshu.com/p/b343fcff51b0
 
 1、item和item子控件的点击长按；2、item的夹杂动画，3、添加头部和尾部4、上拉加载、下拉刷新5、分组和多布局6、item的拖拽和滑动删除等
 
+## ButterKnif
+
+### Git地址：
+
+https://github.com/JakeWharton/butterknife
+
+### 简介：
+
+这个库的知名程度就不说了，JakeWharton大神也是我一直的偶像~很多牛逼的库都出自他手。这个框架，主要的功能是简化View的获取方式，通过注解的方式直接获取View对象。
+
+## EventBus
+
+### Git地址
+
+https://github.com/greenrobot/EventBus
+
+### 简介：
+
+它是Android优化中很好的事件总线，他简化Android的activity，fragment，thread，Service之间通信，代码体积小，质量更高，他用的是事件订阅的思想：
+
+![image-20180817153313863](http://pa97zk4aq.bkt.clouddn.com/2018-08-17-073317.png)
 
 
 
 
-# 封装好的模块
+
+它的用处很多，我们在请求用户数据之后，去更新用户信息，可能更新的页面有点多，那么数据刷新就很麻烦，不知道什么时候需要去刷新用户数据，有了发布和订阅事件之后就能轻松地在数据改变之后去发布更新消息给订阅者。
+
+## 
 
 ## FlycoTabLayout
 

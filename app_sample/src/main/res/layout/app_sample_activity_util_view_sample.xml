@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.UtilViewSampleActivity">
-    
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -29,9 +29,9 @@
                 android:id="@+id/tv_button_alert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@color/colorAccent"
                 android:padding="10dp"
-                android:layout_marginTop="5dp"
                 android:text="弹出提示弹窗"
                 android:textColor="@color/white" />
 
@@ -39,9 +39,9 @@
                 android:id="@+id/tv_button_dialog1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@color/colorAccent"
                 android:padding="10dp"
-                android:layout_marginTop="5dp"
                 android:text="弹出底部弹窗"
                 android:textColor="@color/white" />
 
@@ -49,9 +49,9 @@
                 android:id="@+id/tv_button_show_loading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@color/colorAccent"
                 android:padding="10dp"
-                android:layout_marginTop="5dp"
                 android:text="show Loading"
                 android:textColor="@color/white" />
 
@@ -59,9 +59,9 @@
                 android:id="@+id/tv_button_hide_loading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@color/colorAccent"
                 android:padding="10dp"
-                android:layout_marginTop="5dp"
                 android:text="close Loading"
                 android:textColor="@color/white" />
 
@@ -70,57 +70,75 @@
                 android:id="@+id/tv_show_error"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@color/colorAccent"
                 android:padding="10dp"
-                android:layout_marginTop="5dp"
                 android:text="show error"
                 android:textColor="@color/white" />
 
-            <include layout="@layout/app_sample_item_swipe_view"
-                android:layout_marginTop="5dp"
+            <include
+                layout="@layout/app_sample_item_swipe_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+
+            <EditText
+                android:id="@+id/et_msg_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/seagreen"
+                android:hint="输入消息"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_button_send_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="@color/colorAccent"
+                android:padding="10dp"
+                android:text="发送消息更新事件"
+                android:textColor="@color/white" />
+
             <com.hhh.lib_base.views.HTMLView
                 android:id="@+id/hv_html"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            
-            
+
+
             <ImageView
                 android:id="@+id/iv_img1"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="120dp" />
+                android:layout_height="120dp"
+                android:layout_marginTop="5dp" />
 
             <ImageView
                 android:id="@+id/iv_img2"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="120dp" />
+                android:layout_height="120dp"
+                android:layout_marginTop="5dp" />
 
             <ImageView
                 android:id="@+id/iv_img3"
-                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
 
 
             <ImageView
                 android:id="@+id/iv_img4"
-                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
 
 
         </LinearLayout>
 
-        
+
     </ScrollView>
 
-
-
-    
 
 </LinearLayout>

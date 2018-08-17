@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.blankj.utilcode.util.ScreenUtils;
@@ -22,12 +23,15 @@ import com.hhh.app_index.R;
 import com.hhh.app_index.R2;
 import com.hhh.lib_base.XActivity;
 import com.hhh.lib_base.base_mvp.IBasePresenter;
-import com.hhh.lib_base.views.BottomUpSelectDialog;
-import com.hhh.lib_base.views.HTMLView;
-import com.hhh.lib_base.views.PopupWindowAlert;
 import com.hhh.lib_base.image_loader_util.GlideUtils;
 import com.hhh.lib_base.image_loader_util.transform.CircleTransformation;
 import com.hhh.lib_base.image_loader_util.transform.RadiusTransformation;
+import com.hhh.lib_base.views.BottomUpSelectDialog;
+import com.hhh.lib_base.views.HTMLView;
+import com.hhh.lib_base.views.PopupWindowAlert;
+import com.hhh.lib_core.event.SampleMessageEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +61,9 @@ public class UtilViewSampleActivity extends XActivity {
     @BindView(R2.id.hv_html)
     HTMLView hvHtml;
 
+    @BindView(R2.id.tv_button_send_msg)
+    View tvButtonSendMsg;
+
     @BindView(R2.id.iv_img1)
     ImageView ivImg1;
 
@@ -68,6 +75,9 @@ public class UtilViewSampleActivity extends XActivity {
 
     @BindView(R2.id.iv_img4)
     ImageView ivImg4;
+
+    @BindView(R2.id.et_msg_show)
+    EditText etMsgShow;
 
     private BottomUpSelectDialog mBottomUpSelectDialog;
     private PopupWindowAlert mPopupWindowAlert;
@@ -198,6 +208,16 @@ public class UtilViewSampleActivity extends XActivity {
             @Override
             public void onClick(View v) {
                 showError("出现了异常，请稍后再试~");
+            }
+        });
+
+        tvButtonSendMsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SampleMessageEvent messageEvent = new SampleMessageEvent();
+                messageEvent.setmMsg(etMsgShow.getText().toString());
+                EventBus.getDefault().post(messageEvent);
+                ToastUtils.showShort("已发送消息事件");
             }
         });
 

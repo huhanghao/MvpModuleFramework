@@ -47,4 +47,41 @@
         android:text="测试时间选择"
         android:textColor="@color/white" />
 
+    <TextView
+        android:id="@+id/tv_msg_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/seagreen"
+        android:padding="10dp"
+        android:text="暂时无消息"
+        android:textColor="@color/white" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_button_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorAccent"
+            android:padding="10dp"
+            android:text="注册消息事件"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_button_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorAccent"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="解绑消事件息"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
 </LinearLayout>

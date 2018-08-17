@@ -60,7 +60,8 @@ ext {
             "rxlifecycle_components"    :   'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1',
             // easyPermission
             "easypermissions"           :   'pub.devrel:easypermissions:1.2.0',
-
+            // eventBus
+            "eventbus"                  :   'org.greenrobot:eventbus:3.1.1',
     ]
 
     // 网络访问请求依赖库
@@ -71,7 +72,6 @@ ext {
             // okhttp
             "okhttp"                        :   'com.squareup.okhttp3:okhttp:3.9.0',
             "okhttp_logging_interceptor"    :   'com.squareup.okhttp3:logging-interceptor:3.9.0',
-
     ]
 
 }
