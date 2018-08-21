@@ -31,4 +31,10 @@
             <enum name="LEFT_RIGHT" value="1" />
         </attr>
     </declare-styleable>
+
+
+    <declare-styleable name="AutoLineGroup">
+        <attr name="is_equal" format="boolean"/>
+        <attr name="equal_sum" format="integer" />
+    </declare-styleable>
 </resources>

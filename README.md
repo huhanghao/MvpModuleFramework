@@ -432,6 +432,20 @@ git地址：https://github.com/michaelxs/Android-CommonShapeButton?utm_source=an
 ![](http://pa97zk4aq.bkt.clouddn.com/2018-08-08-091255.png)
 
 
+## AutoLineGroup
+
+### 描述：
+
+很多控件需要自动换行或者几等分一行，我们这个控件就解决了均分和换行的问题。不必在再去依靠recycleView写一些本来很简单的页面。
+
+### 使用场景
+
+![屏幕快照 2018-08-21 18.28.38](http://pa97zk4aq.bkt.clouddn.com/2018-08-21-102902.png)
+
+![](http://pa97zk4aq.bkt.clouddn.com/2018-08-21-102926.png)
+
+
+
 
 
 

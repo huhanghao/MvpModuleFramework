@@ -2,6 +2,8 @@ package com.hhh.app_index.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -10,6 +12,7 @@ import com.hhh.app_index.R2;
 import com.hhh.lib_base.XFragment;
 import com.hhh.lib_base.base_mvp.IBasePresenter;
 import com.hhh.lib_base.image_loader_util.GlideUtils;
+import com.hhh.lib_base.views.AutoLineGroup;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -27,8 +30,21 @@ public class SampleFragment extends XFragment {
     @BindView(R2.id.banner_home)
     Banner bannerHome;
 
+    @BindView(R2.id.alg_sample1)
+    AutoLineGroup algSample1;
+
+    @BindView(R2.id.alg_sample2)
+    AutoLineGroup algSample2;
+
+    @BindView(R2.id.alg_sample3)
+    AutoLineGroup algSample3;
+
     private ArrayList<String> listPath = new ArrayList<>();
     private ArrayList<String> listTitle = new ArrayList<>();
+
+    private ArrayList<String> mExpressList = new ArrayList<>();
+    private ArrayList<String> mDriverList = new ArrayList<>();
+    private ArrayList<String> mRepairList = new ArrayList<>();
 
     @Override
     public IBasePresenter setPresenter() {
@@ -43,6 +59,49 @@ public class SampleFragment extends XFragment {
     @Override
     public void addView(Bundle savedInstanceState) {
         initBanner();
+
+        initView();
+    }
+
+    private void initView() {
+        mExpressList.add("1");
+        mExpressList.add("2");
+        mExpressList.add("3");
+        mExpressList.add("4");
+
+        mDriverList.add("1");
+        mDriverList.add("2");
+        mDriverList.add("3");
+        mDriverList.add("4");
+        mDriverList.add("5");
+
+
+        mRepairList.add("1");
+        mRepairList.add("2");
+        mRepairList.add("3");
+        mRepairList.add("4");
+        mRepairList.add("5");
+        mRepairList.add("6");
+        mRepairList.add("7");
+        mRepairList.add("8");
+
+
+        LayoutInflater mInflater = LayoutInflater.from(getContext());
+        for (int i = 0; i < mExpressList.size(); i++) {
+            View view = mInflater.inflate(R.layout.app_sample_sample_view, null);
+            algSample1.addView(view);
+        }
+
+        for (int i = 0; i < mDriverList.size(); i++) {
+            View view = mInflater.inflate(R.layout.app_sample_sample_view, null);
+            algSample2.addView(view);
+        }
+
+        for (int i = 0; i < mRepairList.size(); i++) {
+            View view = mInflater.inflate(R.layout.app_sample_sample_view, null);
+            algSample3.addView(view);
+        }
+
     }
 
     public void initBanner() {
