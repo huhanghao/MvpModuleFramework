@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.hhh.app_index.R;
 import com.hhh.app_index.R2;
@@ -61,6 +62,17 @@ public class SampleFragment extends XFragment {
         initBanner();
 
         initView();
+
+        initListener();
+    }
+
+    private void initListener() {
+        algSample1.setOnChildClickListener(new AutoLineGroup.OnChildClickListener() {
+            @Override
+            public void onChildClick(int pos, View view) {
+                ToastUtils.showShort("点击了：" + pos);
+            }
+        });
     }
 
     private void initView() {
@@ -105,7 +117,7 @@ public class SampleFragment extends XFragment {
     }
 
     public void initBanner() {
-        for (int i = 0; i <3; i++) {
+        for (int i = 0; i < 3; i++) {
             listPath.add("http://img1.cache.netease.com/catchpic/7/7F/7F9C353236E073FA3FD66708AFA58935.png");
             listTitle.add("http://img1.cache.netease.com/catchpic/7/7F/7F9C353236E073FA3FD66708AFA58935.png");
         }

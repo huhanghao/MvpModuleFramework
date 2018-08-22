@@ -437,12 +437,16 @@ git地址：https://github.com/michaelxs/Android-CommonShapeButton?utm_source=an
 ### 描述：
 
 很多控件需要自动换行或者几等分一行，我们这个控件就解决了均分和换行的问题。不必在再去依靠recycleView写一些本来很简单的页面。
+这个控件可设置的属性有：1、is_equal ：是否等分 2、equal_sum：等分数 3、has_vertical_divider ：是否有垂直分割线 
+4、has_horizontal_divider：是否有水平分割线
+同时还有子view的点击事件
 
 ### 使用场景
 
-![屏幕快照 2018-08-21 18.28.38](http://pa97zk4aq.bkt.clouddn.com/2018-08-21-102902.png)
+![](http://pa97zk4aq.bkt.clouddn.com/2018-08-22-062203.png)
 
 ![](http://pa97zk4aq.bkt.clouddn.com/2018-08-21-102926.png)
+
 
 
 

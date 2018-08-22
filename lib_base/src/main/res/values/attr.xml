@@ -36,5 +36,7 @@
     <declare-styleable name="AutoLineGroup">
         <attr name="is_equal" format="boolean"/>
         <attr name="equal_sum" format="integer" />
+        <attr name="has_vertical_divider" format="boolean" />
+        <attr name="has_horizontal_divider" format="boolean" />
     </declare-styleable>
 </resources>

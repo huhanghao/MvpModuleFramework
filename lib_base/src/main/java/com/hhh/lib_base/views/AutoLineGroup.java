@@ -2,23 +2,37 @@ package com.hhh.lib_base.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hhh.lib_base.R;
+import com.hhh.lib_core.utils.ResUtils;
 
 
 /**
  * 自动换行的ViewGroup
  */
 public class AutoLineGroup extends ViewGroup {
-
     private Boolean mIsEqualMode = true;  // 是否是等分模式
-    private int mEqualSum = 1;
-    private LayoutInflater mInflater;
-    private int equalHeight;
+    private int mEqualSum = 1;      // 分隔数
+    private int equalHeight;        // 等分高度
+    private int equalWidth;         // 等分宽度
+    private boolean mHasHorizontalDivider;      // 是否有水平等分先
+    private boolean mHasverticalDivider;        // 是否有垂直等分析按
+    private Paint mPaint;
+    private int childCount;                     // 子view数量
+    private OnChildClickListener mOnChildClickListener;
+
+    public interface OnChildClickListener {
+        void onChildClick(int pos, View view);
+    }
+
+    public void setOnChildClickListener(OnChildClickListener onChildClickListener) {
+        mOnChildClickListener = onChildClickListener;
+    }
 
     public AutoLineGroup(Context context) {
         super(context, null);
@@ -27,10 +41,18 @@ public class AutoLineGroup extends ViewGroup {
     public AutoLineGroup(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
 
+        // 获取对应属性
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AutoLineGroup);
         mIsEqualMode = typedArray.getBoolean(R.styleable.AutoLineGroup_is_equal, true);
+        mHasHorizontalDivider = typedArray.getBoolean(R.styleable.AutoLineGroup_has_horizontal_divider, false);
+        mHasverticalDivider = typedArray.getBoolean(R.styleable.AutoLineGroup_has_vertical_divider, false);
         mEqualSum = typedArray.getInt(R.styleable.AutoLineGroup_equal_sum, 1);
         typedArray.recycle();
+
+        // 当需要画divider的时候，我们启动ondraw的流程
+        if (mHasHorizontalDivider | mHasverticalDivider) {
+            setWillNotDraw(false);
+        }
     }
 
     @Override
@@ -51,7 +73,7 @@ public class AutoLineGroup extends ViewGroup {
         int childHeight;
         View childView = null;
 
-        int childCount = getChildCount();
+        childCount = getChildCount();
 
         // 在等分的情况下，高度只由数量决定;  在非等分资情况下，要去一个一个测量
         if (mIsEqualMode) {
@@ -71,7 +93,7 @@ public class AutoLineGroup extends ViewGroup {
             int count = 0;
             count = childCount / mEqualSum;
             int dataExtra = childCount % mEqualSum;
-            if(dataExtra!= 0 ){
+            if (dataExtra != 0) {
                 count++;
             }
             totalHeight = count * maxLineWidth;
@@ -135,7 +157,7 @@ public class AutoLineGroup extends ViewGroup {
         // 等分的情况
         if (mIsEqualMode) {
             int count = 0;
-            int equalWidth = width / mEqualSum;
+            equalWidth = width / mEqualSum;
             int midH = equalHeight / 2;
             int midW = equalWidth / 2;
             for (int i = 0; i < childCount; i++) {
@@ -143,6 +165,19 @@ public class AutoLineGroup extends ViewGroup {
                 if (View.GONE == childView.getVisibility()) {
                     continue;
                 }
+
+                // 设置view的点击
+                childView.setTag(i);
+                childView.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (mOnChildClickListener != null) {
+                            int pos = (int) v.getTag();
+                            mOnChildClickListener.onChildClick(pos, v);
+                        }
+                    }
+                });
+
                 // 获取child的宽高
                 childW = childView.getMeasuredWidth();
                 childH = childView.getMeasuredHeight();
@@ -164,8 +199,15 @@ public class AutoLineGroup extends ViewGroup {
                     curLeft = curLeft + equalWidth;
                 }
                 // 让child的布局位于等分布局中间
-                finalL = midW + viewL - childW / 2;
-                finalR = midW + viewL + childW / 2;
+
+                if (childW > equalWidth) {
+                    finalL = viewL;
+                    finalR = viewR;
+                } else {
+                    finalL = midW + viewL - childW / 2;
+                    finalR = midW + viewL + childW / 2;
+                }
+
                 childView.layout(finalL, viewT, finalR, viewB);
 
 
@@ -204,7 +246,36 @@ public class AutoLineGroup extends ViewGroup {
                 lastChildHeight = childHeight;
                 childView.layout(viewL, viewT, viewR, viewB);
             }
+        }
+    }
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        if(mPaint==null){
+            mPaint = new Paint();
+            mPaint.setStyle(Paint.Style.FILL);
+            mPaint.setAntiAlias(true);
+            mPaint.setColor(ResUtils.getColor(R.color.common_bg));
+            mPaint.setStrokeWidth(1);
+        }
+
+        // 在等分情况下画分隔线
+        if (mIsEqualMode) {
+            if (mHasHorizontalDivider) {
+                // 根据行数进行绘制
+                for (int i = 0; i < childCount / mEqualSum; i++) {
+                    canvas.drawLine(0, (i + 1) * equalHeight, getWidth(), (i + 1) * equalHeight, mPaint);
+                }
+            }
+
+            if (mHasverticalDivider) {
+                for (int i = 0; i < mEqualSum; i++) {
+                    canvas.drawLine((i + 1) * equalWidth, 0, (i + 1) * equalWidth, getHeight(), mPaint);
+                }
+            }
 
         }
+        super.onDraw(canvas);
     }
 }
