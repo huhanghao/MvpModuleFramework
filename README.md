@@ -1,5 +1,6 @@
-# NewModule
-我的基础框架代码
+# MvpModuleFramework
+利用路由router解耦的组件化框架模板，里面的BaseActivity和BaseFragment采用了mvp进行封装。项目引入了常用的第三方控件，和一些常用的自定义控件。比较适合中型项目的开发和维护，多人开发不同的module，效率不要太高。
+里面的SampleModule是常用控件和工具的使用示例。
 
 # 框架说明
 
