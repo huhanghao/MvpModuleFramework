@@ -3,6 +3,7 @@ package com.hhh.lib_base;
 import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +41,7 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
     // mvp 中的p对象
     private P p;
     private ProgressDialog mProgressDialog;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +86,7 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
             }
         });
 
-
+        mHandler = new Handler();
     }
 
     /**
@@ -226,6 +228,13 @@ public abstract class XActivity<P extends IBasePresenter> extends RxAppCompatAct
         mProgressDialog.setCanceledOnTouchOutside(true);
         mProgressDialog.setCancelable(true); // 能够返回
         mProgressDialog.show();
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mProgressDialog.cancel();
+            }
+        },2000);
     }
 
 
