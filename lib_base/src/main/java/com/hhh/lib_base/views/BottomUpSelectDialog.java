@@ -40,6 +40,7 @@ public class BottomUpSelectDialog extends Dialog implements OnClickListener, OnI
     private boolean mUseCustomColor = false;
     private int mFirstItemColor;
     private int mOtherItemColor;
+    private boolean isMatchScreen = false; // 是否是全屏
 
     public interface SelectDialogListener {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id);
@@ -142,7 +143,14 @@ public class BottomUpSelectDialog extends Dialog implements OnClickListener, OnI
         dialogList.setAdapter(dialogAdapter);
         mMBtn_Cancel = (Button) findViewById(R.id.mBtn_Cancel);
         mTv_Title = (TextView) findViewById(R.id.mTv_Title);
+        View mSp_space = findViewById(R.id.sp_space);
 
+        // 判断是否是全屏
+        int allItemListViewHeight = getAllItemListViewHeight(dialogList);
+        int height = mActivity.getWindowManager().getDefaultDisplay().getHeight();
+        if(allItemListViewHeight > height){
+            isMatchScreen = true;
+        }
 
         mMBtn_Cancel.setOnClickListener(new View.OnClickListener() {
 
@@ -161,6 +169,11 @@ public class BottomUpSelectDialog extends Dialog implements OnClickListener, OnI
             mTv_Title.setText(mTitle);
         } else {
             mTv_Title.setVisibility(View.GONE);
+            if(isMatchScreen){
+                mSp_space.setVisibility(View.VISIBLE);
+            }else{
+                mSp_space.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -250,5 +263,27 @@ public class BottomUpSelectDialog extends Dialog implements OnClickListener, OnI
         mFirstItemColor = firstItemColor;
         mOtherItemColor = otherItemColor;
         mUseCustomColor = true;
+    }
+
+    //获取Listview所有Item高度总和
+    public int getAllItemListViewHeight(ListView listView){
+        DialogAdapter adapter = (DialogAdapter) listView.getAdapter();
+        int totalHeight = -1;// 总的高度
+        try{
+            if(adapter!=null){
+                for (int i = 0; i < listView.getCount(); i++) {
+                    View listItem = adapter.getView(i, null, listView);
+                    listItem.measure(0, 0);
+                    totalHeight += listItem.getMeasuredHeight();
+                }
+                //加上分割线高度
+                totalHeight += (listView.getDividerHeight() * (adapter.getCount() - 1));
+            }else{
+                //will return -1
+            }
+        }catch (Exception e){
+            totalHeight = -1;
+        }
+        return totalHeight;
     }
 }

@@ -19,6 +19,14 @@
         android:gravity="center"
         android:visibility="gone"/>
 
+    <Space
+        android:id="@+id/sp_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:visibility="gone"
+        />
+
     <ListView
         android:id="@+id/dialog_list"
         android:layout_width="match_parent"

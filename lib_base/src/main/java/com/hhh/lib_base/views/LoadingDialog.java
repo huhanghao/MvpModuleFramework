@@ -48,25 +48,19 @@ public class LoadingDialog {
      * @return
      */
     public void showLoading(String msg, boolean cancelable) {
-        if(mDialog== null){
-            mDialog = new Dialog(mContext, R.style.CustomProgressDialog);
-            View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_loading, null);
-            tvContent = (TextView) view.findViewById(R.id.tv_dialog_content);
-            tvContent.setText(msg);
-
-            mDialog.setContentView(view, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-            mDialog.setCancelable(true);
-            mDialog.setCanceledOnTouchOutside(true);
-            mDialog.setCanceledOnTouchOutside(cancelable);
-            mDialog.show();
-        }else{
-            View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_loading, null);
-            tvContent = (TextView) view.findViewById(R.id.tv_dialog_content);
-            tvContent.setText(msg);
-            mDialog.setContentView(view, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-            mDialog.setCanceledOnTouchOutside(cancelable);
-            mDialog.show();
+        // 先将已有loading关闭再去重新闯进loading
+        if (mDialog != null) {
+            mDialog.cancel();
         }
+        mDialog = new Dialog(mContext, R.style.CustomProgressDialog);
+        mDialog.setCancelable(true);
+
+        View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_loading, null);
+        tvContent = (TextView) view.findViewById(R.id.tv_dialog_content);
+        tvContent.setText(msg);
+        mDialog.setContentView(view, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+        mDialog.setCanceledOnTouchOutside(cancelable);
+        mDialog.show();
     }
 
     public void showLoading() {

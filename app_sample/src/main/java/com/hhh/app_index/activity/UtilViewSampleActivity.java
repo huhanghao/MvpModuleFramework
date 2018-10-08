@@ -230,6 +230,27 @@ public class UtilViewSampleActivity extends XActivity {
         ArrayList<String> nameList = new ArrayList<>();
         nameList.add("选项1");
         nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
+        nameList.add("选项2");
 
         mBottomUpSelectDialog = new BottomUpSelectDialog(this, R.style.transparentFrameWindowStyle,
                 new BottomUpSelectDialog.SelectDialogListener() {
