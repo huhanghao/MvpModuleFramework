@@ -22,6 +22,8 @@ public class SampleListItemAdapter extends BaseQuickAdapter<String, BaseViewHold
     @Override
     protected void convert(BaseViewHolder helper, String item) {
         helper.setText(R.id.tv_string, item);
+
+
     }
 
 }
