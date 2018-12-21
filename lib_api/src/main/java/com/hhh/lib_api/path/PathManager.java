@@ -20,7 +20,6 @@ public class PathManager {
 
     private PathManager() {
         mPaths = new ArrayList<>();
-        mPaths.addAll(SamplePath.INDEX_PATHS);
     }
 
     public static PathManager getInstance() {
@@ -32,31 +31,38 @@ public class PathManager {
     }
 
     public boolean isNeedToken(String path) {
-        for (WePath p :
-            mPaths) {
-            if (p.path.equals(path)) return p.auth;
+        for (WePath p : mPaths) {
+            if (p.path.equals(path))
+                return p.auth;
 
             if (p.path.contains("%")) {
-              // 注意了 需要额外解析了
-              String[] urlArray = path.split("/");
-              String[] defineArray = p.path.split("/");
+                // 注意了 需要额外解析了
+                String[] urlArray = path.split("/");
+                String[] defineArray = p.path.split("/");
 
-              if (defineArray.length != urlArray.length) continue;
+                if (defineArray.length != urlArray.length) continue;
 
-              boolean absolutelySame = true;
-              // 逐一检查
-              for (int i=0, length = defineArray.length; i<length; ++i) {
-                if (!defineArray[i].contains("%")) {
-                  absolutelySame = defineArray[i].equals(urlArray[i]);
+                boolean absolutelySame = true;
+                // 逐一检查
+                for (int i = 0, length = defineArray.length; i < length; ++i) {
+                    if (!defineArray[i].contains("%")) {
+                        absolutelySame = defineArray[i].equals(urlArray[i]);
 
-                  if (!absolutelySame) break;
+                        if (!absolutelySame) break;
+                    }
                 }
-              }
-
-              if (absolutelySame) return p.auth;
+                if (absolutelySame) return p.auth;
             }
         }
         return true;
     }
 
+    /**
+     * 添加path地址
+     *
+     * @param wePath
+     */
+    public void addPath(WePath wePath) {
+        mPaths.add(wePath);
+    }
 }

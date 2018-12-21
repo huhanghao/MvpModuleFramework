@@ -2,11 +2,14 @@
 apply from: "config.gradle"
 
 buildscript {
-    
+
     repositories {
         google()
         jcenter()
-        maven { name 'Sonatype SNAPSHOTs'; url 'https://oss.sonatype.org/content/repositories/snapshots/' } // butterKnif依赖
+        maven {
+            name 'Sonatype SNAPSHOTs';
+            url 'https://oss.sonatype.org/content/repositories/snapshots/'
+        } // butterKnif依赖
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'

@@ -2,12 +2,15 @@ package com.hhh.app_index.presenter;
 
 import com.hhh.app_index.IndexActivity;
 import com.hhh.app_index.v.IIndexActivityView;
-import com.hhh.lib_api.services.impl.SampleServiceImp;
-import com.hhh.lib_api.services.interfaces.ISampleService;
+import com.hhh.lib_api.path.UrlConstants;
+import com.hhh.lib_api.services.impl.IHttpClientImp;
+import com.hhh.lib_api.services.interfaces.IHttpClient;
 import com.hhh.lib_base.views.LoadingDialog;
 import com.hhh.lib_core.beans.SampleUserBean;
 import com.hhh.lib_core.model.UserInfoManager;
 import com.trello.rxlifecycle2.android.ActivityEvent;
+
+import java.util.HashMap;
 
 import io.reactivex.functions.Consumer;
 
@@ -16,12 +19,17 @@ import io.reactivex.functions.Consumer;
  */
 public class IndexSamplePresenter extends IGetBaseInfoSamplePresenter<IIndexActivityView> {
 
-    private ISampleService mSampleService;
+    private IHttpClient mHttpCLient;
 
     public void getDataFromNet(final IndexActivity indexActivity, String param1, String param2) {
-        mSampleService = SampleServiceImp.create();
+        mHttpCLient = IHttpClientImp.getInstance();
         LoadingDialog.getInstance(indexActivity).showLoading();
-        mSampleService.getUserInfo(param1, param2)
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("username", param1);
+        params.put("password", param2);
+
+        mHttpCLient.post(UrlConstants.Common.adv, params, SampleUserBean.class)
                 .compose(indexActivity.bindUntilEvent(ActivityEvent.PAUSE))  // 绑定生命周期
                 .subscribe(new Consumer<Object>() {
                     @Override
