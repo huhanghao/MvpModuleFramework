@@ -13,7 +13,7 @@
             android:name=".activity.FragmentSampleActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.SelfListActivity"
+            android:name=".activity.CoverFlowActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

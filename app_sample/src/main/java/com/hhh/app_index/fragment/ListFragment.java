@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.hhh.app_index.R;
 import com.hhh.app_index.R2;
-import com.hhh.app_index.adapter.SampleListItemAdapter;
+import com.hhh.app_index.adapter.ListItemAdapter;
 import com.hhh.app_index.presenter.GetListPresenter;
 import com.hhh.app_index.v.IGetListInfoView;
 import com.hhh.lib_base.XFragment;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 
 
-public class SampleListFragment extends XFragment<GetListPresenter> implements IGetListInfoView {
+public class ListFragment extends XFragment<GetListPresenter> implements IGetListInfoView {
 
     @BindView(R2.id.srfl_refreshLayout)
     SmartRefreshLayout srflRefreshLayout;
@@ -31,7 +31,7 @@ public class SampleListFragment extends XFragment<GetListPresenter> implements I
     private ArrayList<String> mStrList = new ArrayList<>();
     private int pageCount = 0;
     private int pageSum = 10;
-    private SampleListItemAdapter mSampleListItemAdapter;
+    private ListItemAdapter mSampleListItemAdapter;
 
 
     @Override
@@ -48,7 +48,7 @@ public class SampleListFragment extends XFragment<GetListPresenter> implements I
     @Override
     public void addView(Bundle savedInstanceState) {
 
-        mSampleListItemAdapter = new SampleListItemAdapter(mStrList);
+        mSampleListItemAdapter = new ListItemAdapter(mStrList);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getContext());
         rvList.setLayoutManager(mLinearLayoutManager);
         mSampleListItemAdapter.bindToRecyclerView(rvList);

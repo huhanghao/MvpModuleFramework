@@ -12,10 +12,10 @@ import java.util.List;
  * Created by nova on 08/03/2018.
  */
 
-public class SampleListItemAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
+public class ListItemAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
 
-    public SampleListItemAdapter(@Nullable List<String> data) {
+    public ListItemAdapter(@Nullable List<String> data) {
         super(R.layout.app_sample_string_item, data);
     }
 

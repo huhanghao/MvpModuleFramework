@@ -14,9 +14,9 @@ import android.view.MenuItem;
 import com.hhh.app_index.R;
 import com.hhh.app_index.R2;
 import com.hhh.app_index.adapter.SampleMainActAdapter;
-import com.hhh.app_index.fragment.SampleFragment;
-import com.hhh.app_index.fragment.SampleListFragment;
-import com.hhh.app_index.fragment.SampleListSpecialFragment;
+import com.hhh.app_index.fragment.FirstFragment;
+import com.hhh.app_index.fragment.ListFragment;
+import com.hhh.app_index.fragment.SelfDefineFragment;
 import com.hhh.lib_base.XActivity;
 import com.hhh.lib_base.base_mvp.IBasePresenter;
 
@@ -49,9 +49,9 @@ public class FragmentSampleActivity extends XActivity {
     }
 
     private void initView() {
-        mFragmentList.add(new SampleFragment());
-        mFragmentList.add(new SampleListFragment());
-        mFragmentList.add(new SampleListSpecialFragment());
+        mFragmentList.add(new FirstFragment());
+        mFragmentList.add(new ListFragment());
+        mFragmentList.add(new SelfDefineFragment());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         disableShiftMode(bnvNavigation);

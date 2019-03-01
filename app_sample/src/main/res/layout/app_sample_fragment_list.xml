@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/steelblue"
-    tools:context=".fragment.SampleFragment">
+    tools:context=".fragment.FirstFragment">
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/srfl_refreshLayout"

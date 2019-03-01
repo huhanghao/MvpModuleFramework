@@ -6,14 +6,14 @@ import android.view.View;
 
 import com.hhh.app_index.R;
 import com.hhh.app_index.R2;
-import com.hhh.app_index.activity.SelfListActivity;
+import com.hhh.app_index.activity.CoverFlowActivity;
 import com.hhh.app_index.presenter.GetListPresenter;
 import com.hhh.lib_base.XFragment;
 
 import butterknife.BindView;
 
 
-public class SampleListSpecialFragment extends XFragment {
+public class SelfDefineFragment extends XFragment {
 
     @BindView(R2.id.csb_btn1)
     View csbBtn1;
@@ -34,7 +34,7 @@ public class SampleListSpecialFragment extends XFragment {
         csbBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),SelfListActivity.class));
+                startActivity(new Intent(getActivity(),CoverFlowActivity.class));
             }
         });
     }

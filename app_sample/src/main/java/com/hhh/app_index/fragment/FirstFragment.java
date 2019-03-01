@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 
 
-public class SampleFragment extends XFragment {
+public class FirstFragment extends XFragment {
 
 
     @BindView(R2.id.banner_home)
