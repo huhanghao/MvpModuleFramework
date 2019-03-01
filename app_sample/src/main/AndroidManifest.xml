@@ -12,6 +12,9 @@
         <activity
             android:name=".activity.FragmentSampleActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SelfListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

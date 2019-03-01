@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/app_sample_ic_home_black_24dp"
-        android:title="home" />
+        android:title="自定义" />
 
     <!--<item-->
         <!--android:id="@+id/navigation_dashboard"-->
@@ -14,11 +14,11 @@
     <item
         android:id="@+id/navigation_friends"
         android:icon="@drawable/app_sample_ic_friends_circle"
-        android:title="friend" />
+        android:title="list上下拉" />
 
     <item
         android:id="@+id/navigation_mine"
         android:icon="@drawable/app_sample_ic_mine"
-        android:title="wode" />
+        android:title="自定义控件" />
 
 </menu>

@@ -36,6 +36,7 @@ dependencies {
     implementation rootProject.ext.lib_base_dependencies["constraint-layout"]
     implementation rootProject.ext.lib_base_dependencies["support-v4"]
     // a router
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor rootProject.ext.lib_base_dependencies["arouter-compiler"]
     // butter knife
     annotationProcessor rootProject.ext.lib_base_dependencies["butterknife-compiler"]
