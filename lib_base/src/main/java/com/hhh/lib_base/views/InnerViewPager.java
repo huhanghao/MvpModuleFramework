@@ -7,7 +7,7 @@ import android.view.View;
 
 
 /**
- * scrollView 嵌套时内部使用的crollView
+ * scrollView 嵌套时内部使用的scrollView
  * 重新去获取子布局的高度
  */
 public class InnerViewPager extends ViewPager {
