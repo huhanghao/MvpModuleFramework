@@ -22,8 +22,6 @@ public class ListItemAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder helper, String item) {
         helper.setText(R.id.tv_string, item);
-
-
     }
 
 }

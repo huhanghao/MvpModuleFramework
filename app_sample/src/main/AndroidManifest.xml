@@ -16,6 +16,13 @@
             android:name=".activity.CoverFlowActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="landscape"/>
+
+        <activity
+            android:name=".activity.nestedscroll.ScrollListActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activity.nestedscroll.ScrollMainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
